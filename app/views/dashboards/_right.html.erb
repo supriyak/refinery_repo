@@ -1,0 +1,157 @@
+<%= stylesheet_link_tag "colorbox.css"%>
+<%= javascript_include_tag "jquery.colorbox.js"%>
+<!--[if IE 6]>
+<style>
+  #good_box_li_1{
+    width: 40%;
+  }
+</style>
+ <![endif]-->
+<div id="right" class="clearingfix">
+     <!-- get now -->
+<br/>
+<br/>
+      <div class="get_now">
+        <h3>get in now</h3>
+        <div class="get_now_content">
+          <span class="text">Get your FREE <br/> Prescription Discount Card and SAVE on over 50,000 drugs nationwide.</span>
+          <%= image_tag "bottom_box_img.png", :alt => "images"%>
+          <%= link_to "click here", "/sign-up", :class => "click_here"%>
+        </div>
+      </div>      
+     
+	<style>
+		.new_discount {
+			font-family: Arial;
+			font-size:42px;
+			text-align:center;
+			color: #555555;
+    	display: block;
+    	margin-top: 45px;
+    	
+		}
+		.new_discount span {
+			font-size:24px;
+			vertical-align: top;
+		}
+	</style>
+      <!-- box -->
+      <div class="box">
+        <h3>our members have saved</h3>
+        <span class="new_discount"><span>$</span><%= number_with_delimiter(@saving_counter.value) if !@saving_counter.blank? %>
+          </span>
+      </div>
+      <!-- / box -->
+      
+      <!-- good box -->
+      <div class="good_box">
+        <h4>- Good at -</h4>
+        <ul id="good_box_li_1">
+          <li>Costco</li>
+          <li>CVS Pharmacy</li>
+          <li>Duane Reade</li>
+		  <li>Shopko</li>
+          <li>Albertson&#39;s</li>		
+          <li>Stop &amp; Shop</li>
+          <li>Safeway</li>
+          <li>Kmart</li>
+		  </ul> <ul>
+          <li>Rite Aid</li>
+          <li>Target</li>
+          <li>Publix</li>
+          <li>Eckerd</li>
+			<li>And thousands more, like your neighborhood drugstore</li>
+        </ul>
+      </div>
+      <!-- / good box -->
+        <!--<div id="rating" style="margin-left: 10px;padding: 10px 0 0 0;">
+         <div id="main" class="clearingfix hreview-aggregate">
+          <div itemscope="itemscope" itemtype="http://www.data-vocabulary.org/Review-aggregate/">
+          <div class='item'>
+          <div  class="page_title" style="width:212px;text-align: center;font-size: 18px;color: #333;font-family: Din, Arial, Helvetica, sans-serif;font-weight:bold;">- User Feedback -</div>
+          <table cellpadding="0" cellspacing="0" width="300">
+            <tr>
+              <td colspan="2"> &nbsp;
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" class="fn org" style="font-weight:normal;font-size: 20px;color: #060;"><span>Helprx.info</span></td>
+            </tr>
+            <tr>
+            <td colspan="2"> &nbsp;
+            </td>
+            </tr>
+            <tr>
+              <td width='40%' style="font-weight: normal;">Average Rating</td>
+              <td width="60%"><a href="/reviews" ><span class="rating" title='View rating details' ><span id="star_rate" class="stars digits percent-text rating average"><%#=RatingSite.average('rate')%></span></span></a></td>
+             </tr>
+             <tr>
+              <td  colspan='2'><span style="font-weight: normal;" class="votes" title='View rating details'><%#=link_to "(Based on #{RatingSite.count} votes)",'/reviews'%></span></td>
+             </tr>
+            <% #if cookies[:hlprx_ratings].blank? %>
+                <tr>
+                  <td colspan="2" height="2px;">&nbsp;
+
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="font-weight: normal;">
+                    <span title="Add your rating and review to HelpRx.info"><%#= link_to " Rate and review HelpRx.info", "/coupons/ratings", :class => "fancybox_star" %></span>
+                  </td>
+                </tr>
+            <%# end %>
+          </table>
+          </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+<script>
+  $(document).ready(function() {
+    if (!$.fn.colorbox) return;
+    $(".fancybox_star").colorbox({
+      "iframe": true,
+      "fastIframe": false,
+      "innerWidth": 610,
+      "innerHeight": 414,
+      "opacity": 0.8,
+      "scrolling": false,
+      "onComplete": function() {
+        var iframe = $("iframe.cboxIframe"),
+        body = iframe.contents().find("body"),
+        floatStyle = body.css("float");
+        body.css("float", "left");
+        body.css("float", floatStyle);
+      }
+    });
+  });
+</script>
+<script type="text/javascript">
+/*$.fn.stars = function() {
+    return $(this).each(function() {
+        // Get the value
+        var val = parseFloat($(this).html());
+        // Make sure that the value is in 0 - 5 range, multiply to get width
+        var size = Math.max(0, (Math.min(5, val))) * 16;
+        // Create stars holder        
+        var $span = $('<span />').width(size);
+        // Replace the numerical value with stars
+        $(this).html($span);
+    });
+}
+$(function() {
+    $('span.stars').stars();
+});*/
+</script>
+ <style type="text/css">
+  /* span.stars, span.stars span {
+   display: block;
+   background: url('/assets/stars.png') 0 -16px repeat-x;
+   width: 80px;
+   height: 16px;
+  }
+
+  span.stars span {
+   background-position: 0 0;
+  }*/
+ </style>

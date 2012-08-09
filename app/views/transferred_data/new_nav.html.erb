@@ -1,0 +1,273 @@
+<html>
+	<head>
+		<%= stylesheet_link_tag    "css/validationEngine.jquery.css" %>
+		<%= javascript_include_tag "js/jquery_1_4.js","js/jquery.validationEngine-en.js", "js/jquery.validationEngine.js","mbox" %>
+		<%= stylesheet_link_tag "css/landing.css", :media => "all" %>
+		<%= render :partial => 'layouts/google_analytics'%>
+	</head>
+<body style="background-color: #8dacd8">
+	<script src="//cdn.optimizely.com/js/31931623.js"></script> 	
+    <div class="mboxDefault"></div>
+    <style>
+      #free_card_nav select{
+        width: 240px;
+      }
+      #free_card_nav select:focus{
+        width: 240px;
+      }
+    </style>
+    <script type="text/javascript"> mboxCreate('helprx_global_top_<%=$ttenv%>'); </script>
+    <!--[if IE]>
+    <style>
+      .form_item_nav{
+        text-align: left;
+      }
+      #free_card_nav select{
+        width: 249px;
+      }
+    #finish_nav{
+      margin-left: -43px
+    }
+    </style>
+   <![endif]-->
+	<% if request.path.include?("/email") %>
+	        <!--
+	            Start of DoubleClick Floodlight Tag: Please do not remove
+	            Activity name of this tag: HelpRx Email Discount Confirm (Standard)
+	            URL of the webpage where the tag is expected to be placed: http://www.helprx.info/email-sign-up
+	            This tag must be placed between the <body> and </body> tags, as close as possible to the opening tag.
+	            Creation Date: 05/23/2012
+	            -->
+	            <script type="text/javascript">
+	            var axel = Math.random() + "";
+	            var a = axel * 10000000000000;
+	            document.write('<iframe src="https://fls.doubleclick.net/activityi;src=3488012;type=helpr182;cat=helpr136;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+	            </script>
+	            <noscript>
+	            <iframe src="https://fls.doubleclick.net/activityi;src=3488012;type=helpr182;cat=helpr136;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+	            </noscript>
+	        <!-- End of DoubleClick Floodlight Tag: Please do not remove -->
+	  <% elsif request.path.include?("/sms") %>
+	        <!--
+		Start of DoubleClick Floodlight Tag: Please do not remove
+		Activity name of this tag: HelpRx SMS Discount Confirm (Standard)
+		URL of the webpage where the tag is expected to be placed: http://www.helprx.info/sms-sign-up
+		This tag must be placed between the <body> and </body> tags, as close as possible to the opening tag.
+		Creation Date: 05/23/2012
+		-->
+		<script type="text/javascript">
+		var axel = Math.random() + "";
+		var a = axel * 10000000000000;
+		document.write('<iframe src="https://fls.doubleclick.net/activityi;src=3488012;type=helpr182;cat=helpr547;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+		</script>
+		<noscript>
+		<iframe src="https://fls.doubleclick.net/activityi;src=3488012;type=helpr182;cat=helpr547;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+		</noscript>
+	
+	<!-- End of DoubleClick Floodlight Tag: Please do not remove -->
+  <% end %>
+
+			<!--
+				Start of DoubleClick Floodlight Tag: Please do not remove
+				Activity name of this tag: HelpRx Print Coupon (Sales)
+				URL of the webpage where the tag is expected to be placed: http://www.helprx.info/helprx-sign-up
+				This tag must be placed between the <body> and </body> tags, as close as possible to the opening tag.
+				Creation Date: 04/17/2012
+				-->
+		<% if @sales_tag && @sales_tag == true %>
+				<iframe src="https://fls.doubleclick.net/activityi;src=3488012;type=hrxtx;cat=helpr615;qty=1;cost=1.3;ord=<%=params[:u]%>?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+		<%else%>
+				<iframe src="https://fls.doubleclick.net/activityi;src=3488012;type=hrxtx;cat=helpr615;qty=1;cost=0.21;ord=<%=params[:u]%>?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+		<%end%>
+				<!-- End of DoubleClick Floodlight Tag: Please do not remove -->
+
+
+	<script>
+	    jQuery(document).ready(function(){
+	        var valid = jQuery("#free_card_nav").validationEngine({
+	            scroll: false,
+	            inlineValidation: false
+	        });
+	        $("#finish_nav").live('click', function(){
+	            if (valid == true) {
+	                return true;
+	                
+	            }
+	            else {
+	                $("#free_card_nav").validationEngine({
+	                    scroll: false,
+	                    inlineValidation: false
+	                });
+	            }
+	        });
+	    });
+	    
+	</script>
+
+  <script type="text/javascript">
+      function focus(){
+          var highlight = document.getElementById('firstname');
+          highlight.focus();
+      }
+  </script>
+
+<% if !@path.blank? && @path == "/helprx-sign-up" %>
+ <img src="https://www.emjcd.com/u?CID=1523507&OID=<%=Time.now().to_i%>&TYPE=352246&ITEM1=conversion&AMT1=0&QTY1=1&CURRENCY=USD&METHOD=IMG" height="1" width="20">
+<% end %>
+ <script type="text/javascript"> mboxCreate('helprx_regForm_top_<%=$ttenv%>'); </script>
+<!-- wrapper -->
+		<!-- main and form -->
+        <div id="discounts_nav">
+            <div id="discounts_left_nav">
+                Now Get A FREE Discount card!
+            </div>
+            <div id="discounts_right_nav">
+                <img src="/assets/RxR_digital_card.png"/>
+            </div>
+			</div>
+            <div id="free_card_outer_nav" align="center" style="padding:20px 0 0 0;">
+                <%= form_for @transferred_datum , :html  =>{:id => 'free_card_nav', :name => 'transferred_data'} do |f| %>
+                <% if request.path.include?("/email") %>
+                  <input type="hidden" value="email_new_nev" name="new_nev"/>
+                <% elsif request.path.include?("/sms")%>
+                  <input type="hidden" value="sms_new_nev" name="new_nev"/>
+                <% elsif request.path.include?("/fulfill")%>
+                  <input type="hidden" value="fulfill_new_nev" name="new_nev"/>
+                <% end %>
+                <table width="80%">
+                    <tr class="form_item_nav">
+                        <td nowrap="nowrap">
+                            <label for="first_name">
+                                First Name*
+                            </label>
+                        </td>
+                        <td>
+                            <%= f.text_field :firstname ,:id=>"firstname", :class=>"validate[required]", :style => "width:240px;", :size => nil %>
+                        </td>
+                    </tr>
+                    <tr class="form_item_nav">
+                        <td nowrap="nowrap">
+                            <label for="last_name">
+                                Last Name*
+                            </label>
+                        </td>
+                        <td>
+                            <%= f.text_field :lastname ,:id=>"lastname", :class=>"validate[required]" , :style => "width:240px;", :size => nil %>
+                        </td>
+                    </tr>
+                    <tr class="form_item_nav">
+                        <td nowrap="nowrap">
+                            <label for="address_one">
+                                Address 1*
+                            </label>
+                        </td>
+                        <td>
+                            <%= f.text_field :address1 ,:id=>"address1", :class=>"validate[required]" , :style => "width:240px;", :size => nil %>
+                        </td>
+                    </tr>
+                    <tr class="form_item_nav">
+                        <td nowrap="nowrap">
+                            <label for="address_two">
+                                Address 2
+                            </label>
+                        </td>
+                        <td>
+                            <%= f.text_field :address2 ,:id=>"address2" , :style => "width:240px;", :size => nil %>
+                        </td>
+                    </tr>
+                    <tr class="form_item_nav">
+                        <td>
+                            <label for="city">
+                                City*
+                            </label>
+                        </td>
+                        <td>
+                            <%= f.text_field :city ,:id=>"city", :class=>"validate[required]" , :style => "width:240px;", :size => nil %>
+                        </td>
+                    </tr>
+                    <tr class="form_item_nav">
+                        <td>
+                            <label for="state">
+                                State*
+                            </label>
+                        </td>
+                        <td>
+                            <select name="transferred_datum[state]" id="state" class="validate[required]">
+                                <option value="">Please select a state</option>
+                                <% $states.each do |k,v| %>
+                                <option value="<%=k%>"><%=v %></option>
+                                <% end %>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="form_item_nav">
+                        <td>
+                            <label for="zip">
+                                Zip*
+                            </label>
+                        </td>
+                        <td>
+                            <%= f.text_field :zip ,:id=>"zip", :class=>"validate[required]" , :style => "width:240px;", :size => nil %>
+                        </td>
+                    </tr>
+                    <tr class="form_item_nav">
+                        <td>
+                            <label for="email">
+                                E-mail*
+                            </label>
+                        </td>
+                        <td>
+                            <%= f.text_field :email ,:id=>"email", :class=>"validate[custom[email]]" , :style => "width:240px;", :size => nil %>
+                        </td>
+                    </tr>
+                    <!-- custom code for search --><input name="transferred_datum[source_id]" type="hidden" value="<%= cookies[:hlprx_utm_source] %>" /><input name="transferred_datum[userinfo_id]" type="hidden" value="<%= params[:u] if !params[:u].blank? %>" /><input name="transferred_datum[groupno]" type="hidden" value="<%=$GRP%>" /><input name="transferred_datum[partner]" type="hidden" value="<%= cookies[:hlprx_utm_source] %>" /><input name="transferred_datum[url]" type="hidden" value="<%= request.referer %>" /><input name="transferred_datum[path]" type="hidden" value="<%= request.url %>" /><input name="transferred_datum[subsource]" type="hidden" value="<%= cookies[:hlprx_utm_subsource]%>" /><input name="transferred_datum[creative]" type="hidden" value="<%= cookies[:hlprx_utm_creative]%>" /><input type="hidden" name="transferred_datum[remote_ip]" value="<%=request.env['REMOTE_ADDR']%>" /><% if params[:sourceid] %>
+                    <input type="hidden" name="sourceid" value="<%=params[:sourceid]%>" /><% end %>
+                    <% if !@m.blank? %>
+                    <input type="hidden" name="transferred_datum[current_prescription]" value="<%= @m %>"/><% end %>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                        </div>             <input type="image" src="/assets/buttons/finish_btn.png" id="finish_nav">
+                            </td>
+                        </tr>
+                    </table><% end %>
+            </div>
+        </div>
+
+
+<!-- pixels added 11/15/2011 for Brandt at MySavings -->
+<script src="http://partners.mysavings.com/lead_third/310/OPTIONAL_INFORMATION"></script>
+<noscript><img src="http://partners.mysavings.com/track_lead/310/OPTIONAL_INFORMATION"></noscript>
+
+
+<!-- pixels added 11/15/2011 for Pulpo Exact Drive and Pulse 360 Rob and Jesse -->
+<iframe id='pm_tracker_11110222398' name='pm_tracker_11110222398' src='http://t1.tentaculos.net/iframe/11110222398/_PM_STATUS,1/cb,313433' framespacing='0' frameborder='no' scrolling='no' width='0' height='0'><div id='pm_tracker_i_11110222398' style='position: absolute; left: 0px; top: 0px; visibility: hidden;'><img src='http://t1.tentaculos.net/image/11110222398/_PM_STATUS,1/cb,313433' width='0' height='0' alt='' /></div></iframe>
+
+<!-- Conversion Pixel - KeyReactions - conversion - DO NOT MODIFY -->
+<script src="http://ads.exactdrive.com/px?id=24420&t=1" type="text/javascript"></script><!-- End of Conversion Pixel -->
+
+<img src="http://link.p0.com/1x1c.dyn?p=74VXKA93" width=0 height=0>
+
+<!-- pixels added 11/03/2011 for Rob and Jesse -->
+<!-- 7Search Code for Conversion Page (start) -->
+<script language="JavaScript" type="text/javascript">
+var _7search_conversion_advid = 178230;
+var _7search_conversion_type = "purchase";
+var _7search_conversion_value = 1;
+</script>
+<script language="JavaScript" type="text/javascript" src="http://conversion.7search.com/conversion/v1/conversion.js"></script>
+<noscript><img width="1" height="1" border="0" src="http://conversion.7search.com/conversion/v1/?advid=178230&urlid=&type=purchase&value=1&noscript=1" /></noscript>
+<!-- 7Search Code for Conversion Page (end) -->
+
+<!--- pixel added 9/7/11 for Andrew Yahoo -->
+<!-- Advertiser 'Loeb Enterprises, LLC',  Conversion tracking 'YourRx_PrintConversionPixel' - DO NOT MODIFY THIS PIXEL IN ANY WAY -->
+<img src="https://ad.yieldmanager.com/pixel?id=1325187&t=2" width="1" height="1" />
+<!-- End of conversion tag -->
+
+<script type="text/javascript">
+document.getElementById('firstname').focus();
+</script>
+</body>
+</html>

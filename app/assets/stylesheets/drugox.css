@@ -1,0 +1,219 @@
+/* main body setup */
+div#middle {
+    width:auto;
+    clear:both;
+    margin:-1px 0 32px 0;
+    background:url(../assets/middile_bg.png) 0 0 no-repeat;
+    padding:1px 6px 0 6px;
+}
+
+/* content column */
+div#drugox_main {
+		text-align: center;
+    width:auto;
+    margin:0 0 0 0;
+}
+
+#drugox_main h1 {
+	font-size:50px;
+	line-height: 38px;
+	padding-top:27px;
+	font-family: DIN, 'serif';
+}
+
+#drugox_main h2 {
+	color:#009900;
+	font-size:26px;
+	padding-top:10px;
+	font-family: DIN, 'serif';
+	padding-bottom:30px;
+}
+
+#drugox_left {
+	width: 250px;
+	float: left;
+}
+
+#drugox_left img {
+	margin-left: 25px;
+}
+
+
+.easy_long_left {
+		background: url(/images/drugox_easy_long_left.png) no-repeat 0 0;
+		width:243px;
+		height:828px;
+		margin-top:20px;
+}
+.easy_long_left h3 {
+	background: url(/images/drugox_easy_heading.png) no-repeat 0 0;
+	width:246px;
+	height:57px;
+	text-indent:-9999px;
+}
+.welcome_long_left {
+		background: url(/images/drugox_large_left_bg.png) no-repeat 0 0;
+		width:251px;
+		height:385px;
+		margin-top:20px;
+}
+.left_box {
+		background: url(/images/drugox_left_box_bg.png) no-repeat 0 0;
+		width:251px;
+		height:225px;
+		margin-top:20px;
+	}
+div.left_box h3 {
+    background:url(../assets/our_title.png) 50% 0 no-repeat;
+    text-indent:-9999px;
+    height:57px;
+    width:251px;
+}
+
+div.left_box span.discount {
+    font-family:Din, Arial, Helvetica, sans-serif;
+    font-size:15px;
+    color:#000;
+    font-weight:bold;
+    line-height:19px;
+    padding:3px 14px 0 12px;
+    display:block;
+}	
+	
+#drugox_center {
+    width:429px;
+    float: left;
+    text-align: center;
+}
+
+#drugox_right {
+	width:251px;
+	float: left;
+	margin-left:11px !important;
+}
+
+.good_box {
+	text-align: left;
+}
+
+.good_last {
+	width:180px !important;
+}
+
+
+.drugox_welcome_box {
+	background: url(/images/drugox_right_box_bg.png) no-repeat 0 0;
+	width:251px;
+	height:385px;
+}
+
+.welcome_long_left h3,
+.drugox_welcome_box h3 {
+	background: url(/images/drugox_welcome.png) no-repeat  4px 0 transparent;
+	width:251px;
+	height:57px;
+	text-indent: -999999px;
+}
+.welcome_long_left img,
+.drugox_welcome_box img {
+	padding-left:9px;
+	padding-right:3px;
+	float: left;
+}
+
+.welcome_long_left p,
+.drugox_welcome_box p {
+text-align: left;
+padding-left:20px;
+	padding-right:15px;
+		font-size:12px;
+	font-family: Arial;
+	line-height: 20px;
+}
+#drugox_bottom {
+	width:655px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.drugox_contact {
+	padding-left:25px;
+	padding-top:10px;
+	width:470px;
+	padding-left:25px;
+}
+
+.drugox_contact textarea {
+	width:516px;
+	height:111px;
+}
+
+.drugox_contact input {
+	width:214px;
+	height:18px;
+	margin-top:10px;
+}
+
+.drugox_submit {
+	margin-top:0px;
+	background: url(/images/drugox_submit.png) no-repeat 0 0 transparent;
+	width:199px;
+	height:33px !important;
+	border: 0px;
+	cursor: pointer;
+	margin-left:160px;
+	text-indent: -99999px;
+}
+#grossodo{
+	width:220px !important;
+}
+
+#coupon .discount_value {
+	position: relative;
+	bottom:335px;
+	color:#3F7226;
+	font-size:80px;
+	font-weight:bold;
+	line-height:80px;
+	padding-left:5px;
+	text-align:center;
+}
+
+#coupon .medicine_name_value {
+	position: relative;
+	bottom: 280px;
+	color:#000000;
+font-size:32px;
+font-weight:bold;
+line-height:32px;
+text-align:center;
+}
+
+#coupon .groupno_value {
+	position: relative;
+	bottom: 214px;
+	right:110px;
+	color:#000000;
+font-size:14px;
+font-weight:bold;
+line-height:14px;
+}
+
+#coupon .uid_value {
+position: relative;
+	bottom: 190px;
+	right: 95px;
+	color:#000000;
+font-size:14px;
+font-weight:bold;
+line-height:14px;
+}
+#print_coupon {
+
+position: relative;
+	bottom: 126px;
+	color:#000000;
+font-size:14px;
+font-weight:bold;
+line-height:14px;
+}

@@ -1,0 +1,53 @@
+<%= javascript_include_tag "fancybox/source/jquery.fancybox.pack.js"%>
+<%= stylesheet_link_tag "fancybox/source/jquery.fancybox.css", :media=> "screen" %>
+
+<div id="main" class="clearingfix">
+      <!-- welcome -->
+      <div class="welcome">       
+        <h1>Welcome to</h1>
+        <h2>HelpRx.info</h2>
+        <span class="top">Search, click, print, and save.</span>
+        We've made it our mission to provide the best markdowns and discounts on prescription drugs on the web. Every discount you find is <strong>free</strong>, good at <strong>virtually every pharmacy in the US</strong>, and will save you money right at the register - no rebate forms or paperwork required! To get started, you can search for your prescription drug, <a href="/discounts">browse</a> the discounts or check out the listings below.
+      </div>
+      <!-- / welcome -->
+
+       <!-- search discount -->
+       <h4>Search Would come up here</h4>
+      <!-- / search discount -->
+
+      <!-- top discounts -->
+      <div class="top_discounts">
+        <h3>Top Discounts, A-Z</h3>
+        <% if !@coupons.blank? %>
+        <% counter = 0 %>
+        <% total = @coupons.count %>
+        <% col_max = (total/5).ceil %>
+        <% i=1 %>
+        <% for coupon in @coupons %>
+          <% if counter == 0 %>
+        <ul class="column">
+          <%  end %>
+              <li>
+              	<%= link_to("#{coupon.name[0..15]}", print_coupon_printable_discount_path(coupon), :class => "fancybox" ) %>
+              </li>
+               <% counter += 1 %>
+          <% if counter == col_max + 1 %>
+            </ul>
+            <% counter = 0 %>
+           <% end %>
+        <% end %>
+        <ul/>
+        <% end %>
+      </div>
+      <!-- top discounts -->
+</div>
+
+<script type="text/javascript">
+	        $(document).ready(function() {
+	      	$('a.fancybox').fancybox({
+                        'width' : 520,
+                        'height': 100,
+	                'type' : 'iframe'
+	              });
+	        });
+ </script>

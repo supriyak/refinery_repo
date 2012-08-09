@@ -1,0 +1,102 @@
+<%= stylesheet_link_tag "colorbox.css", :media=> "screen" %>
+<%= javascript_include_tag "jquery.colorbox.js"%>
+<style>
+  table td a{
+    margin-top: 2px;
+    float: left;
+}
+  table td a img{
+    float:left;
+     border: 0 none;
+}
+</style>
+<div id="right_new" class="clearingfix">
+    <!-- get now -->
+    <div class="right_free_card">
+      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      <%= link_to image_tag("/assets/clickhere.png"), new_email_signup_path(:layout => true),:style=>"padding-left: 11px;" %>      
+    </div>
+    <div class="locator">
+    	<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<form action="<%=$locator_path%>" method="GET">
+           <input type="text" name="name" id="name" value="Your zip code here" class="locate_text" width="162px;" height="28px;" style="text-align: center;color:#666666;font-style: italic;font-weight: bold" onfocus="$(this).val('')" onblur="set_value($(this).val())"  >
+		<br/>
+		<input type="submit" value="search" class="locate_search" id="SearchButton">
+		</form>
+    </div>
+    <div class="good_box">
+        <h4>- Good at -</h4>
+        <ul id="good_box_li_1">
+          <li>Costco</li>
+          <li>CVS Pharmacy</li>
+          <li>Duane Reade</li>
+		  <li>Shopko</li>
+          <li>Albertson&#39;s</li>
+          <li>Stop &amp; Shop</li>
+          <li>Safeway</li>
+          <li>Kmart</li>
+		  </ul> <ul>
+          <li>Rite Aid</li>
+          <li>Target</li>
+          <li>Publix</li>
+          <li>Eckerd</li>
+			<li>And thousands more, like your neighborhood drugstore</li>
+        </ul>
+      </div>
+    <script>
+      function set_value(val)
+      {
+        if( val == ""){
+          $("#name").val('Your zip code here')
+        }
+        else{
+          $("#name").val(val);
+        }
+
+      }
+    </script>
+    <style>
+      div.good_box{
+        overflow:hidden;
+        padding:15px 0 14px 0;
+        margin-left: -8px;
+      }
+      div.good_box h4{
+        padding-left: 65px;
+        text-align: left;
+      }
+      div.good_box ul{
+        width: 40%;
+      }
+      .new_discount {
+        font-family: Arial;
+        font-size: 42px;
+        text-align: center;
+        color: #555555;
+        display: block;
+        margin-top: 45px;
+      }
+      .new_discount span {
+        font-size: 24px;
+        vertical-align: top;
+      }
+    </style>
+</div>
+<script>
+$(document).ready(function(){
+    $("input#SearchButton").colorbox({
+        href: function(){
+            var url = $(this).parents('form').attr('action');
+            var ser = $(this).parents('form').serialize(); //alert(url+'?'+ser);
+            return url + '?' + ser;
+        },
+        innerWidth: 970,
+        innerHeight: 535,
+        iframe: true
+    });
+});
+</script>

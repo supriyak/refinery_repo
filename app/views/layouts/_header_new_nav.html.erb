@@ -1,0 +1,40 @@
+<div>
+    <div id="headermenu" style="padding:10px 50px 35px 0">
+        <div style="float:right;">
+            <%= link_to "Home", print_home_path %> | 
+            <%= link_to "About", '/about-us?layout=new' %> | 
+            <%= link_to "FAQ", '/faq?layout=new' %> | 
+            <%= link_to "Mobile Card", mobile_page_path %> | 
+			<%= link_to "Customer Service", "/contact-us?layout=new" %>
+        </div>
+    </div>
+    <div id="header_new_nav" style="margin:0 0 0 -1px;">
+        <div class="logo1">
+            <%= link_to image_tag("logo1.png", :alt => "Home", :title => "Home"),print_home_path %>
+        </div>
+        <!-- / logo -->
+        <div class="header_right" style="padding:0 0 0 0;">
+            <!-- topmenu -->
+            <div id="topmenu_new">
+                <ul>
+                	
+                    <li class='<%= request.path == "/print/discounts" ? "active" : ""%>'>
+                        <%= link_to "Printable Coupons", print_discounts_path%>
+                    </li>
+                    <!--added to test free card in nav-->
+                    <li class='<%= request.path == "/email/discounts" ? "active" : ""%>'>
+                        <%= link_to "Email Coupons", email_discounts_path %>
+                    </li>
+                    <li class='<%= request.path == "/sms/discounts" ? "active" : ""%>'>
+                        <%= link_to "SMS Coupons",sms_discounts_path %>
+                    </li>
+                    <li class='<%= request.path == "/email/new-sign-up" ? "active" : ""%>'>
+                    	<%= link_to "Free Card", new_email_signup_path(:layout => true)%>
+                    </li>
+                </ul>
+            </div>
+            <!-- / topmenu -->
+        </div>
+    </div>
+</div>
+<!-- / header -->

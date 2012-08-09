@@ -1,0 +1,95 @@
+<script type="text/javascript" src="https://api.cloudsponge.com/address_books.js"></script>
+              <script type="text/javascript" charset="utf-8">
+              var csPageOptions = {
+                domain_key:"<%= $CLOUDSPONGE_DOMAIN_KEY %>",
+                textarea_id:"contact_list",
+                mobile_render:true,
+                include      :['email']
+              };
+              </script>
+<style>
+  .invite_title{
+    font-size: 26px;
+    margin-top: 30px;
+    margin-left: 30px;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: #F89C37;
+}
+.text_style{  
+font-size: 12px;
+border: 1px outset #D0D0D0;
+padding: 4px 4px;
+box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+-webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+}
+.bold{
+  font-weight: bold;
+}
+</style>
+<div class="invite_title">Invite your friends to save with HelpRx.info:</div>
+<div style="margin: 25px 10px 10px 27px">
+<%=form_tag "/thankyou_invite_friends" ,:method=>'post', :id=>"invite_form" do %>
+  <input name="id" type="hidden" value="<%= @sender.id if @sender %>" />
+  <table cellpadding="5" cellspacing="5">
+    <tr>
+      <td class="bold">Your Name:</td>
+      <td style="text-align:left"><%=text_field_tag "name", "#{@sender.firstname if !@sender.firstname.blank?}",:class=>"validate[required] text_style" ,:style=>"height:25px;width:200px" %></td>
+    </tr>
+    <tr>
+      <td class="bold">Email address:</td>
+      <td style="text-align:left"><%=text_field_tag "email","#{@sender.email if !@sender.email.blank?}", :class=>" validate[required] text_style",:style=>"height:25px;width:200px"%></td>
+    </tr>
+  </table>
+  <table>
+    <tr><td>&nbsp;</td></tr>
+    <tr>
+      <td valign="top" class="bold">Add contacts from your address book:
+      
+          <a id="source-yahoo" href="#" onclick="return cloudsponge.launch('yahoo');"><img alt="Yahoo" height="20" src="/assets/yahoo.png" width="20" /></a>
+          <a id="source-gmail" href="#" onclick="return cloudsponge.launch('gmail');"><img alt="Gmail" height="20" src="/assets/gmail.png" width="20" /></a>
+          <a id="source-windowslive" href="#" onclick="return cloudsponge.launch('windowslive');"><img alt="Windows Live" height="20" src="/assets/windows_live.jpg" width="20" /></a>
+          <a id="source-aol" href="#" onclick="return cloudsponge.launch('aol');"><img alt="Aol" height="20" src="/assets/aol-icon.png" width="20" /></a>
+          <a id="source-plaxo" href="#" onclick="return cloudsponge.launch('plaxo');"><img alt="Plaxo" height="20" src="/assets/Plaxo-Icon.png" width="20" /></a>
+      </td>
+    </tr>
+    <tr><td>&nbsp;</td></tr>
+    <tr>
+      <td class="bold">Or type in e-mail addresses:<br/>
+      <textarea id="contact_list" name="contact_list" style="width:450px;height:82px"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td class="bold"><%=label_tag "Your Message"%>:<br/>
+      <textarea id="message" name="message" style="width:450px;height:82px">Hi, I found this prescription discount website and think you will find it helpful. Take a look at this free prescription discount card!</textarea>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align:right"><input type="submit" value="" class="submit" id="send"/></td>
+    </tr>
+  </table>   
+  <%end%>
+</div>
+
+<style>
+  #send{
+    background: url("/assets/buttons/send_btn.png") no-repeat;
+    height: 46px;
+    width: 100px;
+    border: none;
+    background-size: 101px;
+  }
+</style>
+ <!--[if IE]>
+    <style>
+      #send{
+        width: 150px;
+      }
+    </style>
+   <![endif]-->
+ <script>
+   $(document).ready(function(){
+     $("#invite_form").validationEngine({scroll: false});
+   })
+ </script>

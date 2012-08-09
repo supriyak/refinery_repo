@@ -1,0 +1,9 @@
+<% if request.path == "/esp/helprx-sign-up" %>
+  <%= render 'form_spanish' %>
+<% else %>
+  <% if params[:layout] == "true" %>
+    <%= render 'form_new' %>
+  <% else %>
+    <%= render 'form' %>
+  <% end %>
+<% end %>

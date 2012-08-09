@@ -1,0 +1,90 @@
+
+<html>
+	<head>
+        <%= stylesheet_link_tag    "css/smoothness/jquery-ui-1.8.1.custom.css","css/jquery.autocomplete.css","css/validationEngine.jquery.css", :media => "all" %>
+        <%= stylesheet_link_tag "lifescript"%>
+        <%= javascript_include_tag "application"%>
+        <%= javascript_include_tag "js/jquery.validationEngine-en.js", "js/jquery.validationEngine.js"%>
+        <%= csrf_meta_tags %>
+          <style>
+            .ui-autocomplete, .ac_results ul{
+              width:21%
+            }
+           .ui-autocomplete li:nth-child(odd) { background: #dadada }
+
+          </style>
+
+		<title>Helprx.info</title>
+	</head>
+	<body id="yrx_iframe">
+		<div id="iframe_content">
+
+			<img src="/assets/start_saving_now_iframe_header.jpg" />
+
+
+			<p>Simply enter your prescription and print your own savings.  This discount is valid at over 65,000 pharmacies for savings up to 75%</p>
+			<p>Click submit below to sign up for this valuable savings offer.</p>
+
+
+				<div class="row">
+					<span class="bold_label">What is the name of your current prescription?:</span>
+                                        <input type="text" id="current_prescription" name="current_prescription" class="validate[required]"  />
+				</div>
+                                <input type="hidden" name="transsferred_data[id]" id="id" value="<%=@userinfo.id%>"/>
+				<input class="submit" type="submit" value="Click to print your discount" name="tsubmit" id="tsubmit" onclick="open_print_coupon($('#current_prescription').val())"/>
+
+		</div>
+
+		<%= render :partial => 'layouts/google_analytics'%>
+
+	</body>
+</html>
+<script>
+  function open_print_coupon(current_prescription){
+    if (current_prescription == ''){
+      $.validationEngine.buildPrompt('#current_prescription','Please select a valid prescription','error')
+      return false;
+    }
+    else{
+      $.validationEngine.closePrompt('#current_prescription');
+      window.open('/lifescript_prescription_discount/'+ current_prescription + '?transferred_datum_id=<%=@userinfo.id%>','couponPrint','height=900, width=710,menubar=no,scrollbars=no');
+      setTimeout("location.href = '<%=$LIFESCRIPT_URL%>';",1500);
+      $('#prescription').val('');
+    }
+  }
+  $(function(){
+  var reEscape = new RegExp('(\\' + ['/', '.', '*', '+', '?', '|', '(', ')', '[', ']', '{', '}', '\\'].join('|\\') + ')', 'g');
+  var a = jQuery('#current_prescription').autocomplete({
+      source: "/discounts/simple_search?type=simple"
+    , minChars:1
+    , delimiter: /(,|;)\s*/ // regex or character
+    , maxHeight:400
+    , width:250
+    , autoFocus: true
+    , zIndex: 9999
+    , deferRequestBy: 0
+    ,select: function(event, ui) {
+      $("#current_prescription").val(ui.item.value);
+      $.validationEngine.closePrompt('#current_prescription');
+
+    }
+    }).live('keydown', function (e) {
+        var keyCode = e.keyCode || e.which;
+        //if TAB or RETURN is pressed and the text in the textbox does not match a suggestion, set the value of the textbox to the text of the first suggestion
+        if((keyCode == 9 || keyCode == 13) && ($(".ui-autocomplete li:textEquals('" + $(this).val() + "')").size() == 0)) {
+            $(this).val($(".ui-autocomplete li:visible:first").text());
+            $(".ui-autocomplete").css("display","none");
+        }
+    });
+
+});
+$.expr[':'].textEquals = function (a, i, m) {
+  return $(a).text().match("^" + escape_regexp(m[3]) + "$");
+};
+function escape_regexp(text) {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+}
+
+
+</script>
+

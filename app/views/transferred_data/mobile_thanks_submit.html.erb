@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Helprx Info</title>
+<%= stylesheet_link_tag    "styles-mobile.css", :media => "all" %>
+<%= render :partial => 'layouts/google_analytics'%>
+</head>
+<body class="mobile">
+<% if @add_tag%>
+<!--
+Start of DoubleClick Floodlight Tag: Please do not remove
+Activity name of this tag: HelpRx Mobile Remob
+URL of the webpage where the tag is expected to be placed: http://www.helprx.info/remob
+This tag must be placed between the <body> and </body> tags, as close as possible to the opening tag.
+Creation Date: 05/17/2012
+-->
+<img src="https://ad.doubleclick.net/activity;src=3488012;type=mobil878;cat=helpr986;ord=<%=Time.now.to_i%>?"" width=""1"" height=""1"" alt=""""/>
+<!-- End of DoubleClick Floodlight Tag: Please do not remove -->	
+<%end%>
+<div id="mobileWrap">
+    <div id="mobileInfo"><p><small style="font-size:15px;">Thank you for visiting HelpRx.info. Please present the numbers below to your pharmacist to save immediately. </small></p>
+    </div>
+  <div id="mobileTop">Instant Discount</div>
+  <div id="mobileOutline">
+  <div id="mobileSubhead">Show to Pharmacist for Discount</div>
+  <div id="mobileMain">
+    UID: <%=@result["MemberNumber"]%><br />
+    GRP: <%=@result["GroupNumber"]%><br />
+    PCN: <%=@result["PCN"]%><br />
+    BIN: <%=@result["BIN"]%>
+  </div>
+  </div>
+  <div id="mobileInfo">
+  	<p class="small"><%= link_to "Download temporary card", download_mobile_card_path(:image_path => @image_path)%></p>
+    <h1>Pharmacist Help Line: <%=$HELPLINE_NO%></h1>
+    <p>Present this screen to any U.S. pharmacist when you fulfill your prescriptions to receive up to 75% off your medicine. This card is pre-activated and entitles the member to all prescription drug benefits associated with the BIN, GRP and PCN codes (as per state and federal law). This is not insurance.</p>
+    <p class="small">For more details visit full site at: <%=link_to "HelpRx.info" ,"/?exit_mobile=true"%></p>
+  </div>
+</div>
+</body>
+</html>

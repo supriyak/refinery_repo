@@ -1,0 +1,118 @@
+/* new prescription discount white*/
+.outer_div_top5 table td.label{
+    font-weight: bold;
+}
+.outer_div_top{
+    height: 360px;
+    width: 858px;
+}
+.outer_div_top .outer_div_top1{
+  float: left; width: 100%;margin-left: 30px
+}
+.outer_div_top1_left{
+   float: left;font-family: arial;font-size: 28px;font-weight: bold; margin-top: 20px;
+}
+.outer_div_top1_right{
+   float: left;font-family: arial;font-size: 28px;font-weight: bold;margin-left: 80px; margin-top: 20px;text-align: center;width: 400px
+}
+.outer_div_top2{
+  float: left;font-family: arial;font-size: 16px;font-weight: bold;margin-left: 20px
+}
+.outer_div_top3{
+  float: left;font-family: sans-serif;font-size: 12px;margin-top: 10px;margin-left: 10px;
+}
+.outer_div_top4{
+  float: left;font-family: sans-serif;font-size: 12px;margin-left: 10px;
+}
+.outer_div_top5{
+  border: 1px solid #000000;height: 118px;margin-left: 50px;margin-top: 67px;width: 220px;
+}
+.outer_div_top5 table{
+  font-size: 20px; margin-left: 23px;font-family: sans-serif;
+}
+.outer_div_bottom{
+  font-weight: bold; text-align: center; width: 790px; font-family: sans-serif; font-size: 20px; margin: 65px;
+}
+
+/* new prescription discount blue*/
+
+.pre_new_api_resp table td.label{
+    font-weight: bold;
+}
+.pre_new_outer{
+  height:790px;width:auto;padding: 20px;
+}
+.pre_new_outer .pre_new_outer_inner1{
+  height: auto; width: auto;float: left;
+}
+.pre_new_outer_top{
+ height: auto; width: 499px; float: left;
+}
+.up_to{
+  font-family: arial; font-weight: bold; font-size: 43px;
+}
+.pre_new_discount{
+  float: left; font-family: arial; font-weight: bold; font-size: 45px;
+}
+.pre_new_your_next{
+  float: left; font-family: arial; font-size: 45px; width: 576px; color: #005A9B;
+}
+.pre_new_medicine{
+    color: #005A9B;
+    float: left;
+    font-family: arial;
+    font-size: 57px;
+    font-weight: bold;
+    width: 576px;
+}
+.pre_new_api_resp{
+    float: left;
+    height: 210px;
+    text-align: center;
+    width: 193px;
+}
+.pre_new_api_resp table{
+    font-family: sans-serif;
+    font-size: 17px;
+    padding-left: 122px;
+    padding-top: 45px;
+    text-align: left;
+}
+.pre_new_outer_inner2{
+  height: auto; float: left; width: 849px;
+}
+.pre_new_outer_inner2_top{
+    float: left;
+    padding: 20px 20px 20px 0;
+    width: 46%;
+}
+.pre_new_outer_inner2_span{
+  color: grey; font-family: Helvetica; font-size: 25px;
+}
+.pre_new_outer_inner2_span1{
+  color:#4d4d4d; font-family: helvetica; font-size: 18px;
+}
+.pre_new_outer_inner2_present{
+    color: #4D4D4D;
+    float: left;
+    font-family: helvetica;
+    font-size: 12px;
+    padding: 25px 0 0;
+    width: 43%;
+}
+.pre_new_outer_inner3{
+    color: #005A9B;
+    float: left;
+    font-family: arial;
+    font-size: 32px;
+    height: auto;
+    width: 849px;
+}
+.cut_here{
+  text-align: center; width: 770px; font-size: 12px; color: grey;
+}
+.footer{
+    color: grey;
+    font-size: 10px;
+    font-family: sans-serif;
+}

@@ -1,0 +1,52 @@
+#grossodo {
+  height: 30px;
+  width: 270px;
+}
+
+.gecko #grossodo {
+  position:absolute;
+}
+
+.gecko .oconomy_counter_green .earned-on-odesk {
+  margin-top:40px;
+}
+
+.odometer .wheel {
+    position: relative;
+    float:left;
+    //border: 1px solid #333;
+    border-right: 1px solid #96865f;
+    border-left: 2px solid #96865f;
+    border-bottom: 1px solid #a3936a;
+    border-top: 1px solid #8b7d5a;
+    background: url(/images/gold_background.gif) top left repeat-x #333;
+    width:23px;
+    height:31px;
+    overflow: hidden;
+    font-family: Din;
+    font-size: 18px;
+}
+.odometer .wheel .dig {
+    top:-33px;
+    position: absolute;
+    width: 23px;
+    height: 416px;
+    background: url(/images/dig2.png);
+}
+.odometer .text {
+    font-size: 24px;
+    font-family: DIN;
+    font-weight: bold;
+    position: relative;
+    float: left;
+    padding-top: 6px;
+}
+.odometer .space {
+    font-size: 24px;
+    position: relative;
+    float:left;
+    width: 5px;
+    height: 23px;
+    padding-top: 12px;
+    padding-left: 0px;
+}

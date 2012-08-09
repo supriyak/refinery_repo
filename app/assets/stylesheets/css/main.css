@@ -1,0 +1,250 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Arial', sans-serif;
+	position: relative;
+	background-image: url(/assets/bg.png);
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-color: #1D0090;
+}
+
+#container {
+	width: 1000px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#moreinfo {
+	color: white;
+	opacity: 1.5;
+	position: absolute;
+	top: 2850px;
+	padding-left: 205px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+        text-align: center;
+}
+
+#moreinfo h1 {
+	font-size: 15px;
+	margin: 0 0 10px 0;
+}
+
+#wrapper {
+	width: 1000px;
+	height: 2786px;
+	display: block;
+	background-image: url(/assets/main_new1.png);
+	background-repeat: no-repeat;
+	position: relative;
+}
+
+.main {
+	float: left;
+}
+
+.sidebar {
+	float: right;
+	display: block;
+	padding-right: 20px;
+	width: 270px;
+	position: relative;
+}
+
+form {
+	position: relative;
+}
+
+form p {
+	margin-bottom: 11px;
+	position: relative;
+}
+
+form p label {
+	float: left;
+	text-align: right;
+	width: 90px;
+	font-size: 12px;
+	padding-right: 10px;
+	position: relative;
+	top: 8px;
+	color: #555;
+}
+
+form p input {
+	background-image: url(/assets/input_bg.png);
+	background-repeat: repeat-x;
+	border: 1px solid silver;
+	padding: 7px;
+	width: 130px;
+}
+form p select {
+	background-image: url(/assets/input_bg.png);
+	background-repeat: repeat-x;
+	border: 1px solid silver;
+	padding: 7px;
+	width: 145px;
+}
+form p input:hover {
+	border: 1px solid orange;
+}
+
+form p input:focus {
+	border: 1px solid orange;
+}
+
+.myform form p.btnsubmit {
+	position: relative;
+	width: 249px;
+	margin: 0;
+	padding: 0;
+	display: block;
+}
+
+
+.btnrush {
+	width: 249px;
+	display: block;
+	position: relative !important;
+	padding-top: 0px;
+	float: right;
+	top: 1793px;
+	right: 40px;
+}
+
+.hand2 {
+	display: block;
+	position: absolute;
+	right: 45px;
+	bottom: -20px;
+	height: 46px;
+	width: 34px;
+	background-repeat: no-repeat;
+	background-image: url(/assets/hand.gif);
+}
+
+.hand {
+	display: block;
+	position: absolute;
+	height: 46px;
+	width: 34px;
+	background-repeat: no-repeat;
+	background-image: url(/assets/hand.gif);
+	top: 25px;
+	right: 20px;
+}
+
+.pharmacysearch {
+	position: relative;
+	float: right;
+	top: 40px;
+	right: 130px;
+}
+
+.pharmacysearch a {
+	font-weight: bold;
+}
+.testimonials_header{
+    font-size:18px;
+    color:#1874CD;
+    font-weight: bold;
+    padding-top:40px;
+    padding-left:50px;
+    position: relative;
+    top: 650px;
+}
+.testimonials {
+	position: relative;
+	top: 650px;
+	 padding: 20px 50px 50px;
+}
+
+.t_img {
+	display: block;
+	float: left;
+	padding-right: 20px;
+	padding-bottom: 50px;
+}
+
+.clientname {
+	font-size: 19px;
+	color: #1874CD;
+}
+
+.testi {
+	width: 420px;
+	color: #555;
+}
+
+.t_one {
+	float: left;
+}
+
+.t_two {
+	float: right;
+}
+.t_center{
+    float: left;
+}
+.t_center img{
+    height: 98px;
+    width: 1px;
+}
+#footer {
+	text-align: center;
+	color: silver;
+}
+
+#footer a {
+	color: white;
+        text-decoration: none;
+}
+
+#footer a:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+/* http://sonspring.com/journal/clearing-floats */
+
+.clear {
+	clear: both;
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+
+/* http://perishablepress.com/press/2009/12/06/new-clearfix-hack */
+
+.clearfix:after {
+	clear: both;
+	content: ' ';
+	display: block;
+	font-size: 0;
+	line-height: 0;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+
+/*
+	The following zoom:1 rule is specifically for IE6 + IE7.
+	Move to separate stylesheet if invalid CSS is a problem.
+*/
+
+* html .clearfix,
+*:first-child+html .clearfix {
+	zoom: 1;
+}
+/*#error_msg{
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 20%;
+    background-color: yellow;
+    z-index:1002;
+    overflow: auto;
+}*/

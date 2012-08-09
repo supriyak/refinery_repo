@@ -1,0 +1,44 @@
+#iframe_content {
+    width:504px;
+    margin:0 auto;
+    font-family: arial;
+    background-color: #ffffff;
+}
+#iframe_content p {
+    padding-bottom:4px;
+    color: #434343;
+}
+#iframe_content div.row {
+    padding-bottom:10px;
+}
+#iframe_content div.row label{
+    width:120px;
+    float:left;
+    line-height:20px;
+}
+
+.bold_label {
+    font-weight:600px;
+}
+#thanks{
+    font-family:Din,Arial,Helvetica,sans-serif;
+
+}
+#thanks h1 {
+    font-size:30px;
+    margin:0px;
+}
+#thanks h2 {
+    font-size:20px;
+    color:#FF9900;
+    margin:0px;
+}
+#thanks p {
+    margin-top:0px;
+}
+.ac_results {
+    width:400px !important;
+}
+.ac_results ul {
+    width:400px !important;
+}

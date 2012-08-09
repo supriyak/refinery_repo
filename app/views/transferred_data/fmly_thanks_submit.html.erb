@@ -1,0 +1,112 @@
+<html>
+<head>
+<%= javascript_include_tag "mbox"%>	
+<%= stylesheet_link_tag    "css/thankyou.css", :media => "all" %>
+</head>
+<% if request.path.include?("/email") %>
+	<!--
+	Start of DoubleClick Floodlight Tag: Please do not remove
+	Activity name of this tag: HelpRx Email Discount Address Confirm (Standard)
+	URL of the webpage where the tag is expected to be placed: http://helprx.info/email-transferred_data
+	This tag must be placed between the <body> and </body> tags, as close as possible to the opening tag.
+	Creation Date: 05/24/2012
+	-->
+	<script type="text/javascript">
+	var axel = Math.random() + "";
+	var a = axel * 10000000000000;
+	document.write('<iframe src="https://fls.doubleclick.net/activityi;src=3488012;type=helpr182;cat=helpr276;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+	</script>
+	<noscript>
+	<iframe src="https://fls.doubleclick.net/activityi;src=3488012;type=helpr182;cat=helpr276;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+	</noscript>
+	
+	<!-- End of DoubleClick Floodlight Tag: Please do not remove -->
+<% elsif request.path.include?("/sms") %>
+	<!--
+	Start of DoubleClick Floodlight Tag: Please do not remove
+	Activity name of this tag: HelpRx SMS Discount Address Confirm (Standard)
+	URL of the webpage where the tag is expected to be placed: http://www.helprx.info/sms-transferred_data
+	This tag must be placed between the <body> and </body> tags, as close as possible to the opening tag.
+	Creation Date: 05/24/2012
+	-->
+	<script type="text/javascript">
+	var axel = Math.random() + "";
+	var a = axel * 10000000000000;
+	document.write('<iframe src="https://fls.doubleclick.net/activityi;src=3488012;type=helpr182;cat=helpr075;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+	</script>
+	<noscript>
+	<iframe src="https://fls.doubleclick.net/activityi;src=3488012;type=helpr182;cat=helpr075;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+	</noscript>
+	
+	<!-- End of DoubleClick Floodlight Tag: Please do not remove -->
+<% end %>
+<!--
+Start of DoubleClick Floodlight Tag: Please do not remove
+Activity name of this tag: HelpRx Address Thanks II (Sales)
+URL of the webpage where the tag is expected to be placed: http://www.helprx.info/transferred_data
+This tag must be placed between the <body> and </body> tags, as close as possible to the opening tag.
+Creation Date: 04/24/2012
+-->
+<iframe src="https://fls.doubleclick.net/activityi;src=3488012;type=helprx;cat=helpr400;qty=1;cost=1.5;ord=<%=@userinfo.id%>?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+
+<!-- End of DoubleClick Floodlight Tag: Please do not remove -->
+
+<body style="background-color: #8dacd8">
+<div class="mboxDefault"></div> 
+<script type="text/javascript"> mboxCreate('helprx_global_top_<%=$ttenv%>'); </script>
+<div class="mboxDefault"></div>
+<script type="text/javascript">mboxCreate('regConfirm_<%=$ttenv%>',orderTotal='1', orderId='<%=@usernumber%>', productPurchasedId='<%= @userinfo.rx || "" %>');
+</script>
+
+  <!--[if IE 6]>
+  <script type="text/javascript" src="/assets/js/ie6pngfix.js"></script>
+  <script type="text/javascript">
+    DD_belatedPNG.fix('img, ul, ol, li, div, p, a, h1, h2, h3, h4, h5, h6, span, input, textarea, td');
+  </script>
+  <![endif]-->
+  <style>
+  div {
+      font-family: arial;
+      font-size: 22px;
+      font-weight: bold;
+  }
+  
+  div.set_color {
+  	 margin:140px 0px 0px -8px; background-color: white; width: 104%; height: 300px;
+  }
+  </style>
+  <!-- middle inner container - background bg -->
+<%= image_tag "/assets/small_logo.png",:style=>"margin-left: 365px;margin-top: 10px;" %>
+  <div class="set_color">
+    <div style="margin:0px 0px 0px 15px;">
+      <div style=" float: left; width: 468px; margin-top: 21px;">
+        <div style="float:left;width:70%;padding-top: 28px;">
+          <span style="font-size: 62px;">Thank You</span>
+          <br/>
+          for requesting an RxRelief Card
+        </div>
+        <div style="float:left;width:30%;padding-top:36px;">
+          <%= image_tag "/assets/bottom_box_img.png", :width => "150px" %>
+        </div>
+      </div>
+      <br/><br/>
+      <div style="padding-top: 50px;line-height: 0.1;font-size: 17px;float: left;">
+        <p style="color:#588DD9;font-size: 20px;font-family: sans-serif;text-align: justify;">
+          You should receive your card within two weeks.
+        </p>
+        <p>
+          If you have questions, call us anytime at: <span style="font-size:18px;"><%= $HELPLINE_NO %></span>
+        </p>
+      </div>
+    </div>    
+  </div>
+  <br/>
+  <a href="javascript:void(0)" onclick = "parent.$.colorbox.close();"  style="cursor:pointer;float: right;"><img src="/assets/back_to_page.png" style="border: none"/></a>
+  </body>
+<img src="http://link.p0.com/1x1c.dyn?p=74VXKALN" width=0 height=0/>
+
+<!--- 9/7/11 pixel for Andrew Yahoo --->
+<!-- Advertiser 'Loeb Enterprises, LLC',  Conversion tracking 'YourRx_CardConversionPixel' - DO NOT MODIFY THIS PIXEL IN ANY WAY -->
+<img src="https://ad.yieldmanager.com/pixel?id=1325201&t=2" width="1" height="1" />
+<!-- End of conversion tag -->
+</html>

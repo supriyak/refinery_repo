@@ -1,0 +1,48 @@
+<style>
+  .pagination{
+    text-align: center
+}
+</style>
+<h4 class="admin_header">Registrations</h4>
+<div id="error_msg">
+  <span style="color:red;font-weight:bold"><%= flash[:notice]%></span>
+<div  style="padding-left:170px;">Download as CSV
+<%=form_tag({:controller => "transferred_data", :action => "csv_download"}, :method => "post") do %>
+From<%= date_select('range1', 'start_date', :order => [:month, :day, :year])%>
+To<%= date_select('range2', 'end_date', :order => [:month, :day, :year])%>
+<%= submit_tag("Submit") %>
+<% end %>
+</div>
+<table align="center" class="admin_tables" style="margin-top: 10px">
+  <thead>
+    <tr>
+    <th>FirstName</th>
+    <th>LastName</th>
+    <th>Email</th>
+    <th>Address1</th>
+    <th>Address2</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+  </tr>
+  </thead>
+
+<% @transferred_data.each do |datum| %>
+  <tr>
+    <td><%=h datum.firstname%></td>
+    <td><%=h datum.lastname%></td>
+    <td><%=h datum.email%></td>
+    <td><%=h datum.address1%></td>
+    <td><%=h datum.address2%></td>
+    <td><%=h datum.city%></td>
+    <td><%=h datum.state%></td>
+    <td><%=h datum.zip%></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= will_paginate @transferred_data%>
+
+

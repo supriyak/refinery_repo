@@ -1,0 +1,205 @@
+<%= stylesheet_link_tag "colorbox.css", :media=> "screen" %>
+<%= stylesheet_link_tag "email_home.css", :media=> "screen" %>
+<%= javascript_include_tag "jquery.colorbox.js"%>
+<style>
+  .search_title{
+    padding: 20px 10px 10px 10px;
+    width: 68%;
+}
+  .search_title p{
+    font-family: arial;
+    font-size: 13px;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-right: 30px;
+    text-align: justify;
+}
+  div.good_box h4{
+    padding-left: 65px;
+    text-align: left;
+}
+  div.good_box{
+    overflow:hidden;
+    padding:15px 0 14px 16px;
+    text-align: left;
+}
+</style>
+<div class="new_home_outer_div" align="center">
+  <div class="new_home_inner_1" align="center">
+    <div style="float:left;" class="search_title">
+          <span style="color:#666666;font-size:25px;padding-left: 20px;">Search.Click.Print.Save</span>
+          <p>HelpRx.info uses its massive buying power to negotiate prescription discounts with pharmaceutical companies.</p>
+          <p><span style="color:#F89932; font-size: 15px;">Every discount you find is free,</span> good at virtually every pharmacy in the US, and will save you money right at the register - no rebate forms or paperwork required! </p>
+          <p>Search for your drugs, browse the discounts or check out the listings below.</p>
+          <br/>
+          <p style="color:#F89932; font-size: 20px;">Real discounts, everyday!</p>
+    </div>
+    <div style="float:left;padding-top: 20px">
+       <%= image_tag "/assets/home_new/coupon.png" %>
+    </div>
+  </div>
+  <div class="new_home_inner_2" style="width: auto;">
+    <div class="new_home_inner_2_1">
+      <p style="padding-top: 14px;text-align: center; font-weight: bold; font-size: 21px; font-family: arial; text-align: left; padding-left: 28px;">Taking a Prescription? Search for your discount!</p>
+      <form action="/email/discounts"  method="post" name ="search_form"  id="search_form">
+        <ul class="search_ul">
+              <li>
+                  <input name="search" type="text" id="discount_sphinx" class="input_item"  />
+              </li>
+              <li><input type="submit" value="" class="submit" id="discount_search_submit"/></li>
+        </ul>
+      </form>
+    </div>
+    <div class="new_home_inner_2_2" id="right_new" class="clearingfix">
+      <!-- get now -->
+      <div style="margin-left: 19px;" class="no_printer" >
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <%= link_to "click here", email_discounts_path, :class => "click_here " %>
+      </div>
+      <div style=" margin: 15px 0 0 20px;" class="locator" >
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <form action="<%=$locator_path%>" method="GET">
+          <input type="text" name="name" id="name" value="Your zip code here" class="locate_text" width="162px;" height="28px;" style="text-align: center;color:#666666;font-style: italic;font-weight: bold;margin: 0 0 0 -10px;" onfocus="$(this).val('')" onblur="set_value($(this).val())"  >
+          <br/>
+          <input type="submit" value="search" class="locate_search" id="SearchButton" style=" margin: 3px 0 0 99px;">
+        </form>
+      </div>
+      <div class="good_box">
+        <h4>- Good at -</h4>
+        <ul id="good_box_li_1">
+          <li>Costco</li>
+          <li>CVS Pharmacy</li>
+          <li>Duane Reade</li>
+		  <li>Shopko</li>
+          <li>Albertson&#39;s</li>
+          <li>Stop &amp; Shop</li>
+          <li>Safeway</li>
+          <li>Kmart</li>
+		  </ul> <ul>
+          <li>Rite Aid</li>
+          <li>Target</li>
+          <li>Publix</li>
+          <li>Eckerd</li>
+			<li>And thousands more, like your neighborhood drugstore</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div style="height: auto; float: left; background: url('/assets/home_new/background.png') repeat scroll 0px 0px transparent; margin-left: 26px; width: 627px;" align="left">
+    <div class="new_home_inner_3" class="top_discounts">
+      <h3>Top Discounts, A-Z</h3>
+
+      <% if !@coupons.blank? %>
+        <% counter = 0 %>
+        <% total = @coupons.count %>
+        <% col_max = (total/5).ceil %>
+        <% i=1 %>
+        <% for coupon in @coupons %>
+          <% if counter == 0 %>
+            <ul class="column">
+            <%  end %>
+            <li>
+              <%= link_to("#{coupon.name[0..13]}", email_coupon_printable_discount_path(coupon), :class => "fancybox" ) %>
+            </li>
+            <% counter += 1 %>
+            <% if counter == col_max + 1 %>
+            </ul>
+            <% counter = 0 %>
+          <% end %>
+        <% end %>
+        <ul/>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+<div style="clear:both;float:none;">&nbsp;</div>
+<script>
+        function set_value(val)
+        {
+          if( val == ""){
+            $("#name").val('Your zip code here')
+          }
+          else{
+            $("#name").val(val);
+          }
+
+        }
+</script>
+<script>
+$.widget( "custom.catcomplete", $.ui.autocomplete, {
+		_renderMenu: function( ul, items ) {
+			var self = this,
+				currentCategory = "";
+			$.each( items, function( index, item ) {
+                                var reEscape = new RegExp('(\\' + ['/', '.', '*', '+', '?', '|', '(', ')', '[', ']', '{', '}', '\\'].join('|\\') + ')', 'g');
+                                var pattern = '(' + (self.term).replace(reEscape, '\\$1') + ')';
+                                var result = item.label.replace(new RegExp(pattern, 'gi'), "<strong style='color:#3399FF;'>$1<\/strong>");
+				if ( item.category != currentCategory ) {
+					ul.append( "<li class='ui-autocomplete-category' style='font-weight:bold;font-family:Din,Verdana,Geneva,sans-serif; background: none repeat scroll 0 0 white !important;color: black;font-size: 140%;padding: 5px 5px 2px;'>" + item.category + ':' + "</li>" );
+					currentCategory = item.category;
+				}
+                                return $( "<li style='font-family:Din,Verdana,Geneva,sans-serif'></li>" )
+                                      .data( "item.autocomplete", item )
+                                      .append( "<a>" + result + "</a>" )
+                                      .appendTo( ul );
+			});
+		}
+	});
+
+  $(function(){
+  var reEscape = new RegExp('(\\' + ['/', '.', '*', '+', '?', '|', '(', ')', '[', ']', '{', '}', '\\'].join('|\\') + ')', 'g');
+  var a = jQuery('#discount_sphinx').catcomplete({
+      source: "/discounts/search"
+    , minChars:1
+    , delimiter: /(,|;)\s*/ // regex or character
+    , maxHeight:400
+    , width:450
+    , zIndex: 9999
+    , deferRequestBy: 0
+    });
+
+});
+
+$(document).ready(function() {
+                   if (!$.fn.colorbox) return;
+                      $(".fancybox").colorbox({
+                      "iframe": true,
+                      "fastIframe": false,
+                      "innerWidth": 510,
+                      "innerHeight": 674,
+                      "opacity": 0.8,
+                      "scrolling": false,
+                      "onComplete": function() {
+                        var iframe = $("iframe.cboxIframe"),
+                        body = iframe.contents().find("body"),
+                        floatStyle = body.css("float");
+                        body.css("float", "left");
+                        $.colorbox.resize({ "innerWidth":  iframe.contents().width(), "innerHeight": iframe.contents().height() })
+                        body.css("float", floatStyle);
+                       }
+                      });
+                });
+
+    $("input#SearchButton").colorbox({
+        href: function(){
+            var url = $(this).parents('form').attr('action');
+            var ser = $(this).parents('form').serialize(); //alert(url+'?'+ser);
+            return url + '?' + ser;
+        },
+        innerWidth: 970,
+        innerHeight: 535,
+        iframe: true
+    });
+
+</script>

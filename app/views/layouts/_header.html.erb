@@ -1,0 +1,67 @@
+<!-- header -->
+<div id="header">
+    <div id="phoneNumber" style="background:url(<%=image_path("phoneTile.jpg")%>) 0 0 repeat-x; height:24px; color:#fff; float:right; padding:0 20px; margin: -25px 27px 0 0;">
+        <b style="color:#ff9900;">Questions?</b>
+        <%=$PHONE_NO%>
+    </div>
+    <!-- logo -->
+    <div class="logo">
+    	<%= link_to image_tag("logo.png", :alt => "Home", :title => "Home"),"/home"%>
+    </div><!-- / logo -->
+    <div class="header_right">
+        <h2>Save up to <span class="pre">75%</span> on medication you use everyday.</h2>
+        <!-- topmenu -->
+        <div id="topmenu">
+            <ul>
+                <li>
+                	<%= link_to "Home", "/home" %>
+                </li>
+                <!--added to test free card in nav-->
+               <li>
+                        <%if request.path.include? '/fulfill'%>
+                          <%= link_to "Discounts", "/fulfill/discounts" %>
+                        <%else%>
+                          <%= link_to "Discounts", "/discounts" %>
+                        <%end%>
+                </li>
+                <li>
+                	<%= link_to "faq", "/faq"%>
+                </li>
+                <li>
+                   	<%= link_to "contact", "/contact-us" %>
+                </li>
+                <li>
+                   	<%= link_to "Free Card", "/sign-up"%>
+                </li>
+                
+                <!--added to test free card in nav-->
+                <li class="search">
+                    <form action="/discounts" id="simple_search_form" name="simple_search" method="post">
+                        <input name="search" type="text" id="simple_search_text" class="hint" />
+                    </form>
+                </li>
+            </ul>
+        </div><!-- / topmenu -->
+    </div>
+</div><!-- / header -->
+<script>
+  $(function(){
+  var reEscape = new RegExp('(\\' + ['/', '.', '*', '+', '?', '|', '(', ')', '[', ']', '{', '}', '\\'].join('|\\') + ')', 'g');
+  var a = jQuery('#simple_search_text').autocomplete({
+      source: "/discounts/search?type=simple"
+    , minChars:1
+    , delimiter: /(,|;)\s*/ // regex or character
+    , maxHeight:400
+    , width:450
+    , zIndex: 9999
+    , deferRequestBy: 0
+    ,select: function(event, ui) {
+      $("#simple_search_text").val(ui.item.value); 
+      $('#simple_search_form').submit();
+    }
+    });
+
+});
+
+
+</script>

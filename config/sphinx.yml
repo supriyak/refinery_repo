@@ -1,0 +1,36 @@
+development:
+  port: 3312
+  mem_limit: 256M
+  morphology: stem_en
+  enable_star: true
+  min_infix_len: 0
+  min_prefix_len: 1
+  searchd_file_path: "E:\\urx\\helprx\\db\\sphinx\\db\\"
+  query_log_file: "E:\\urx\\helprx\\db\\sphinx\\searchd.query.log"
+  searchd_log_file: "E:\\urx\\helprx\\db\\sphinx\\searchd.log"
+  pid_file: "E:\\urx\\helprx\\db\\sphinx\\searchd.pid"
+  config_file: "D:\\Refinery\\refinery\\config\\development.sphinx.conf"
+  bin_path: 'C:\sphinx-2.0.4-release-win32-pgsql\bin'
+
+test:
+  port: 3313
+  mem_limit: 256M
+  morphology: stem_en
+  enable_star: true
+  min_infix_len: 0
+  min_prefix_len: 1
+production:
+  port: 3312
+  mem_limit: 256M
+  morphology: stem_en
+  enable_star: true
+  min_infix_len: 0
+  min_prefix_len: 1
+  searchd_file_path: "/usr/lib/helprx/helprx_index/db/sphinx/db/"
+  query_log_file: "/usr/lib/helprx/helprx_index/db/sphinx/searchd.query.log"
+  searchd_log_file: "/usr/lib/helprx/helprx_index/db/sphinx/searchd.log"
+  pid_file: "/usr/lib/helprx/helprx_index/db/sphinx/searchd.pid"
+  config_file: "/home/ragarwal/helprx/production.sphinx.conf"
+  bin_path: '/usr/local/bin'
+
+

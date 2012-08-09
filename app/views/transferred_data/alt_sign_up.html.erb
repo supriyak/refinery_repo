@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<meta name="description" content="put description here" />
+<meta name="keywords" content="put keywords here" />
+<meta name="author" content="author here" />
+
+<title>RxRelief Card - SAVE Up To 74% on Prescription Medications</title>
+<%= stylesheet_link_tag    "css/main.css","css/reset.css", "css/text.css", "css/fix.css" %>
+<%= stylesheet_link_tag    "css/validationEngine.jquery.css", :media => "all" %>
+<%= javascript_include_tag "js/jquery_1_4.js","js/jquery.validationEngine-en.js", "js/jquery.validationEngine.js","js/swfobject_modified.js"%>
+<%#*<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>%>
+
+<!-- scrolltop -->
+<script type="text/javascript">
+   
+	$(document).ready(function(){
+	    $(".scroll").click(function(event){
+	        //prevent the default action for the click event
+	        event.preventDefault();
+
+	        //get the full url - like mysitecom/index.htm#home
+	        var full_url = this.href;
+
+	        //split the url by # and get the anchor target name - home in mysitecom/index.htm#home
+	        var parts = full_url.split("#");
+	        var trgt = parts[1];
+
+	        //get the top offset of the target anchor
+	        var target_offset = $("#"+trgt).offset();
+	        var target_top = target_offset.top;
+
+	        //goto that anchor by setting the body scroll top to anchor top
+	        $('html, body').animate({scrollTop:target_top}, 500);
+	    });
+          $("#alt_signup").validationEngine({scroll:false,inlineValidation:false});
+          $("#alt_signup").find('input:text,select').val('');
+          
+	});
+</script>
+
+</head>
+
+<body>
+
+	<div id="container">
+
+		<span id="moreinfo">
+		 <p>
+                    The information on this site does not constitute medical advice and is not intended to be a substitute
+                 <br/>
+                    for proper medical care provided by a physician. This program is not insurance.
+                 </p>
+		</span>
+
+		<div id="wrapper">
+
+			<div id="top"></div>
+
+			<div class="clear" style="height:220px"></div>
+
+			<div class="main"></div>
+
+			<div class="sidebar">
+
+				<div class="myform">					
+                                          <%#=form_tag "/transferred_data" ,:method=>'post' do |f| %>
+                                  <%= form_for @transferred_datum , :html  =>{:id => 'alt_signup', :name => 'transferred_data'} do |f| %>
+                                 <!-- <%#*<div id="error_msg">%>
+                                          <%#*<span style="color:red;font-weight:bold">Errors : <%= @transferred_datum.errors.full_messages %></span>%>-->
+                                        <%#*</div>%>
+                                          <input type="hidden" name="from_url" value="alt-sign-up"/>
+						<p>
+							<label>Full Name</label>
+                                                         <%= f.text_field :firstname, :class=>"validate[required]" %>
+						</p>
+                                              <input name="alt-sign-up" type="hidden" value="alt-sign-up" /> 
+
+						<p>
+							<label>Address 1</label>
+							<%= f.text_field :address1, :class=>"validate[required]" %>
+						</p>
+						<p>
+							<label>Address 2</label>
+							<%= f.text_field :address2 %>
+						</p>
+						<p>
+							<label>City</label>
+							<%= f.text_field :city, :class=>"validate[required]" %>
+						</p>
+						<p>
+							<label>State</label>
+							<select name="transferred_datum[state]" id="state"  class="validate[required]" style="font-size: 11px;">
+                                                          <option value="">Please select a state</option>
+                                                          <% $states.each do |k,v| %>
+                                                          <option value="<%=k%>"><%=v%></option>
+                                                          <% end %>
+                                                        </select>
+						</p>
+						<p>
+							<label>Zip</label>
+							<%= f.text_field :zip, :class=>"validate[required]" %>
+						</p>
+						<p>
+							<label>Email Address</label>
+							<%= f.text_field :email, :class=>"validate[custom[email]]" %>
+						</p>
+                                              <input name="transferred_datum[userinfo_id]" type="hidden" value="<%= params[:u] if !params[:u].blank? %>" />
+<input name="transferred_datum[source_id]" type="hidden" value="<%= cookies[:hlprx_utm_source] %>" />
+<input name="transferred_datum[groupno]" type="hidden" value="<%=$GRP%>" />
+<input name="transferred_datum[partner]" type="hidden" value="<%= cookies[:hlprx_utm_source] %>" />
+<input name="transferred_datum[url]" type="hidden" value="<%= request.url %>" />
+<input type="hidden" name="transferred_datum[remote_ip]" value="<%=request.env['REMOTE_ADDR']%>" />
+                                        <% if params[:sourceid] %>
+                                        <input type="hidden" name="sourceid" value="<%=params[:sourceid]%>" />
+                                        <% end %>
+                                        <% if !@m.blank?  %>
+                                          <input type="hidden" name="transferred_datum[current_prescription]" value="<%= @m %>"/>
+      				  	<% end %>
+
+
+						<p class="btnsubmit">
+							<div class="hand2"></div>
+							<a href="#">
+                                                                <%= f.submit "", :type => :image, :src => "/assets/btnrush.png" %>
+								<!--<img src="/assets/btnrush.png" alt="" />-->
+							</a>
+						</p>
+					<% end %>
+				</div>
+
+			</div>
+
+			<div class="clear"></div>
+
+                        <div class="testimonials_header">
+                          Testimonials
+                        </div>
+			<div class="testimonials">
+
+				<div class="t_one">
+
+					<div class="testi">
+						<p class="testi">"I used the RxRelief Card at Walmart. The card cut the cost of my medication in half! Thank you very much." <span class="clientname">- Wendell, Montgomery, AL</span></p>
+					</div>
+				</div>
+                                <div class="t_center">
+                                  <%= image_tag "phoneTile.jpg" %>
+                                </div>
+
+				<div class="t_two">
+
+					<div class="testi">
+						<p class="testi">"I used to pay $100 for my prescription... now it only costs me $35 at Rite Aid. You have put money in my pocket, and the best news is that this program is free!"<span class="clientname"> - Bradford, Sacramento, CA</span> </p>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="clear"></div>
+
+			<div class="btnrush">
+				<div class="hand"></div>
+				<a href="#top" class="scroll">
+					<img src="/assets/btnrush.png" alt="" />
+				</a>
+			</div>
+
+		</div>
+		<div class="clear" style="height:20px"></div>
+		<div id="footer">
+			<p>
+        	2012 copyright |
+        	<a href="/about-us">About Us</a> |
+        	<a href="/privacy-policy">Privacy Policy</a> |
+        	<a href="/contact-us" >Contact Us</a>
+			</p>
+		</div>
+
+	</div>
+
+</body>
+
+</html>

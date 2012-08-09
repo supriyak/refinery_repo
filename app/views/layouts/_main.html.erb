@@ -1,0 +1,55 @@
+<div id="main" class="clearingfix">
+
+      <!-- welcome -->
+      <div class="welcome">
+        <%= image_tag("ladyshoppingmeds.jpg", :alt=>"images", :class => "alginright") %>
+        <h1>Welcome to</h1>
+        <h2>HelpRx.info</h2>
+        <span class="top">Search, click, print, and save.</span>
+        We've made it our mission to provide the best markdowns and discounts on prescription drugs on the web. Every discount you find is <strong>free</strong>, good at <strong>virtually every pharmacy in the US</strong>, and will save you money right at the register - no rebate forms or paperwork required! To get started, you can search for your prescription drug, <a href="/discounts">browse</a> the discounts or check out the listings below.
+      </div>
+      <!-- / welcome -->
+
+      <!-- discount box -->
+      <div class="discount_box">
+        <div class="discount_top">
+          <h1>Top Discounts, Updated <%= Time.now.strftime("%m/%d/%Y") %></h1>
+          <span class="most">Most popular discounts - updated daily</span>
+        </div>
+        <ul>
+          <% i=1 %>
+          <% if !@top_coupons.blank? %>
+          <% for coupon in @top_coupons %>
+		  	<li><%= link_to(image_tag("discount_box_img0#{i}.png"), coupon_printable_discount_path(coupon))%><%= link_to raw("Save up to #{coupon.savings}<br /> on <strong>#{coupon.name[0..9]}...</strong>"), coupon_printable_discount_path(coupon)%><%= image_tag("number_0#{i}.png", :alt => "images", :class => "number01")%></li>
+             <% i += 1 %>
+          <% end %>
+          <% end %>
+        </ul>
+      </div>
+      <!-- / discount box -->
+      <!-- top discounts -->
+
+      <div class="top_discounts">
+        <h3>Top Discounts, A-Z</h3>
+        <% if !@coupons.blank? %>
+        <% counter = 0 %>
+        <% total = @coupons.count %>
+        <% col_max = (total/5).ceil %>
+        <% i=1 %>
+        <% for coupon in @coupons %>
+          <% if counter == 0 %>
+        <ul class="column">
+          <%  end %>
+              <li>
+              	<%= link_to("#{coupon.name[0..15]}", "/discounts?search=#{coupon.name}", :class => "fancybox" ) %>
+              </li>
+               <% counter += 1 %>
+          <% if counter == col_max + 1 %>
+            </ul>
+            <% counter = 0 %>
+           <% end %>
+        <% end %>
+        <ul/>
+        <% end %>
+      </div>
+			</div>

@@ -1,0 +1,26 @@
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	form p label {
+		float: left;
+		text-align: right;
+		width: 90px;
+		font-size: 12px;
+		padding-right: 10px;
+		position: relative;
+		top: 8px;
+		color: #555;
+	}
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	form p input {
+		border: 1px solid silver;
+		padding: 7px;
+	}
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	form p {
+		margin-bottom: 8px;
+		position: relative;
+	}
+}	

@@ -1,0 +1,242 @@
+<html>
+<head>
+<%= stylesheet_link_tag    "css/validationEngine.jquery.css", :media => "all" %>
+<%= javascript_include_tag "js/jquery_1_4.js" %>
+<%= javascript_include_tag "js/jquery.validationEngine-en.js", "js/jquery.validationEngine.js"%>
+</head>
+
+<style>
+  .title{
+    font-family: arial;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 18px;
+    width: 790px;
+}
+.gift_data  td {
+  padding: .1em;
+}
+.gift{
+  color: #F89932;
+  font-size: 30px;
+  font-weight: bold;
+  width: 40%;
+  margin-bottom: 5px;
+}
+.gift_data td input[type="text"]{
+  width:190px;
+  border: 1px outset #D0D0D0;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  font-size: 12px;
+  padding: 4px;
+}
+.gift_data td select{
+    border: 1px outset #D0D0D0;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    font-size: 12px;
+    padding: 4px;
+}
+.gift_data td label{
+    color: #666666;
+    font-family: arial;
+    font-size: 13px;
+    font-weight: bold;
+}
+.fancybox-wrap{
+  margin-top: 20px !important;
+}
+.title{
+  padding-top: 10px;
+}
+
+  div {
+      font-family: arial;
+      font-size: 13px;
+      
+  }
+
+  div.set_color {
+  	 margin:6px 0px 0px -8px; background-color: white; width: 104%; height: 560px;
+  }
+  </style>
+  <!--[if IE]>
+<style>
+  .fmly_outer_div{
+    margin-top:30px;
+  }
+</style>
+ <![endif]-->
+  <!-- middle inner container - background bg -->
+  <body style="background-color:#8dacd7">
+
+<%= image_tag "/assets/small_logo.png",:style=>"margin-left: 365px;margin-top: 10px;" %>
+  <div class="set_color">
+    <div style="text-align:left;margin-left: 20px;padding-top: 10px">
+      <span style="font-weight:bold;">Have family or friends who would benefit from an RxRelief Card?</span><br/>
+      We'd be happy to mail them cards. Just provide us with their names and addresses.
+    </div>
+    <div style="padding-left:20px" class="fmly_outer_div">
+             
+      <div style="width:100%;float:left">
+        <div style="width:45%;float:left"><span class="gift">Gift1</span>
+          <%= form_for :transferred_datum1,:url => "/email_sent_to_family" , :method => "POST", :html  =>{:id => 'gift_form1', :name => 'transferred_datum1'} do |f| %>
+          <input name="id" type="hidden" value="<%= params[:id] if !params[:id].blank? %>" />
+          
+            <input name="transferred_datum1[source_id]" type="hidden" value="<%= cookies[:hlprx_utm_source] %>" />
+            <input name="transferred_datum1[rx]" type="hidden" value="<%= @userinfo.rx %>" />
+            <input name="transferred_datum1[groupno]" type="hidden" value="<%=$GRP%>" />
+            <input name="transferred_datum1[partner]" type="hidden" value="<%= cookies[:hlprx_utm_source] %>" />
+            <input name="transferred_datum1[url]" type="hidden" value="<%= request.referer %>" />
+            <input name="transferred_datum1[path]" type="hidden" value="<%= request.url %>" />
+            <input name="transferred_datum1[subsource]" type="hidden" value="<%= cookies[:hlprx_utm_subsource]%>" />
+            <input name="transferred_datum1[creative]" type="hidden" value="<%= cookies[:hlprx_utm_creative]%>" />
+            <input type="hidden" name="transferred_datum1[remote_ip]" value="<%=request.env['REMOTE_ADDR']%>" />
+          <table id="gift1" class="gift_data">
+            <tr><td><%=label_tag "First Name*"%></td></tr>
+            <tr><td><%= f.text_field :firstname , :id=>"g1_fname",:class=>"validate[required]" %></td></tr>
+            <tr><td><%=label_tag "Last Name*"%></td></tr>
+            <tr><td><%= f.text_field :lastname , :id=>"g1_lname", :class=>"validate[required]" %></td></tr>
+            <tr><td><%=label_tag "Email*"%></td></tr>
+            <tr><td><%= f.text_field :email , :id=>"g1_email", :class=>"validate[custom[email]]" %></td></tr>
+            <tr><td><%=label_tag "Address1*"%></td></tr>
+            <tr><td><%= f.text_field :address1 , :id=>"g1_addr1", :class=>"validate[required]" %></td></tr>
+            <tr><td><%=label_tag "Address2"%>:</td></tr>
+            <tr><td><%= f.text_field :address2 ,:id=>"address2" %></td></tr>
+            <tr><td><%=label_tag "City*"%></td></tr>
+            <tr><td><%= f.text_field :city ,:id=>"g1_city", :class=>"validate[required]" %></td></tr>
+            <tr><td><%=label_tag "State*"%></td></tr>
+            <tr>
+               <td>
+                  <select name="transferred_datum1[state]" class="mandatory" style="width:190px" id="g1_state">
+                  <option value="">Please select a state</option>
+                  <% $states.each do |k,v| %>
+                    <option value="<%=k%>"><%=v%></option>
+                    <% end %>
+                  </select>
+               </td>
+            </tr>
+            <tr><td><%=label_tag "Zip*"%></td></tr>
+            <tr><td><%= f.text_field :zip , :id=>"g1_zip", :class=>"validate[required]" %></td></tr>
+          </table>
+          <% end %>
+        </div>
+        <div style="width:5%;float:left">
+          <%= image_tag "/assets/bottom_divider.png", :style=>" height: 459px;width: 1px" %>
+        </div>
+        <div style="width:45%;float:left"><span class="gift">Gift2</span>
+          <%= form_for :transferred_datum2,:url => "/email_sent_to_family" , :method => "POST", :html  =>{:id => 'gift_form2', :name => 'transferred_datum2'} do |f| %>
+          <input name="id" type="hidden" value="<%= params[:id] if !params[:id].blank? %>" />
+            <input name="transferred_datum2[source_id]" type="hidden" value="<%= cookies[:hlprx_utm_source] %>" />
+            <input name="transferred_datum2[rx]" type="hidden" value="<%= @userinfo.rx %>" />
+            <input name="transferred_datum2[groupno]" type="hidden" value="<%=$GRP%>" />
+            <input name="transferred_datum2[partner]" type="hidden" value="<%= cookies[:hlprx_utm_source] %>" />
+            <input name="transferred_datum2[url]" type="hidden" value="<%= request.referer %>" />
+            <input name="transferred_datum2[path]" type="hidden" value="<%= request.url %>" />
+            <input name="transferred_datum2[subsource]" type="hidden" value="<%= cookies[:hlprx_utm_subsource]%>" />
+            <input name="transferred_datum2[creative]" type="hidden" value="<%= cookies[:hlprx_utm_creative]%>" />
+            <input type="hidden" name="transferred_datum2[remote_ip]" value="<%=request.env['REMOTE_ADDR']%>" />
+          <table class="gift_data">
+            <tr><td><%=label_tag "First Name*"%></td></tr>
+            <tr><td><%= f.text_field :firstname ,  :id=>"g2_fname", :onblur => "build_prompt('g2_fname')" %></td></tr>
+            <tr><td><%=label_tag "Last Name*"%></td></tr>
+            <tr><td><%= f.text_field :lastname , :id=>"g2_lname", :onblur => "build_prompt('g2_lname')" %></td></tr>
+            <tr><td><%=label_tag "Email*"%></td></tr>
+            <tr><td><%= f.text_field :email ,  :id=>"g2_email", :onblur => "build_prompt('g2_email')" %></td></tr>
+            <tr><td><%=label_tag "Address1*"%></td></tr>
+            <tr><td><%= f.text_field :address1 , :id=>"g2_addr1", :onblur => "build_prompt('g2_addr1')" %></td></tr>
+            <tr><td><%=label_tag "Address2"%>:</td></tr>
+            <tr><td><%= f.text_field :address2  %></td></tr>
+            <tr><td><%=label_tag "City*"%></td></tr>
+            <tr><td><%= f.text_field :city ,  :id=>"g2_city", :onblur => "build_prompt('g2_city')" %></td></tr>
+            <tr><td><%=label_tag "State*"%></td></tr>
+            <tr>
+               <td>
+                  <select name="transferred_datum2[state]"  id="g2_state" class="mandatory"  style="width:190px"  onblur = "build_prompt('g2_state')">
+                  <option value="">Please select a state</option>
+                  <% $states.each do |k,v| %>
+                    <option value="<%=k%>"><%=v%></option>
+                    <% end %>
+                  </select>
+               </td>
+            </tr>
+            <tr><td><%=label_tag "Zip*"%></td></tr>
+            <tr><td><%= f.text_field :zip ,  :id=>"g2_zip",:onblur => "build_prompt('g2_zip')" %></td></tr>
+          </table>
+          <% end %> 
+        </div>
+      </div>
+    </div>
+ </div>
+ <div align="right">
+    <input type="button" value="" class="submit" id="gift_card_submit"/>
+ </div>
+  </body>
+  <style>
+    #gift_card_submit{
+        background: url(../assets/buttons/submit_btm.png) 0px 0 no-repeat;
+        width: 141px;
+        height: 43px;
+        border: 0;
+        cursor: pointer;
+        margin: 11px 0 0 0px;
+        background-size: 100px;
+    }
+      .formerror .formerrorcontent {
+        width: 60px
+}
+  </style>
+<script>
+
+  function build_prompt(val){
+    var inp = $("#"+val).val().length;
+     if (val != "g2_email"){
+      if (inp == 0){
+        $.validationEngine.buildPrompt("#"+val,'*This is required field','error')
+      }
+     }
+    
+      if (val == "g2_email"){
+          var x=val
+          var atpos=x.indexOf("@");
+          var dotpos=x.lastIndexOf(".");
+          if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+            {
+            $.validationEngine.buildPrompt("#"+val,'*Invalid email Address','error')
+            }
+      }
+   
+  }
+
+  $(document).ready(function(){
+    $("#gift_card_submit").click(function(){
+      $("#gift_form1").validationEngine({returnIsValid: true});
+      valid = $("#gift_form1").validationEngine({returnIsValid: true},'validate');
+      if (valid == true){
+        var $form = $('#gift_form1');
+        $.ajax({
+        type: 'POST',
+        url: $form.attr('action'),
+        data: $form.serialize(),
+        success: function (msg) {
+             if($("#g2_fname").val().length > 0 && $("#g2_lname").val().length > 0 && $("#g2_email").val().length > 0
+            && $("#g2_addr1").val().length > 0 && $("#g2_state").val().length > 0 && $("#g2_zip").val().length > 0){
+              var $form = $('#gift_form2');
+              $.ajax({
+              type: 'POST',
+              url: $form.attr('action'),
+              data: $form.serialize(),
+              success: function (msg) {
+                  window.location.href = "/email_sent_to_family"
+                  }
+              });
+            }
+            else{
+            window.location.href = "/email_sent_to_family"
+            }
+        }
+        });
+      }
+    });
+  });  
+</script>
+</html>

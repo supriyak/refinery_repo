@@ -1,0 +1,189 @@
+#free_card_outer{
+	width:100%;
+	height:auto;
+}
+
+#free_card{
+	width:370px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#free_card label{
+	position:relative;
+	float:left;
+	width:100px;
+}
+
+.form_item{
+	margin-bottom:1.2em;
+	margin-top:1.2em;
+	margin-left:auto;
+	margin-right:auto;
+	width:300px;
+	clear:both;
+}
+
+#free_card input[type="text"]{
+	width:190px;
+}
+
+#finish{
+	margin-top:13px;
+	margin-left:85px;
+}
+
+#middle_inner_container{
+	width:916px;
+	height:auto;
+	background:url('/assets/thankyou/mid_bg1.png');
+	background-repeat:no-repeat;
+	margin-top:-2px;
+}
+
+#middle_inner{
+	margin-left:auto;
+	margin-right:auto;
+	width:867px;
+	padding-top:30px;
+}
+
+#main_landing{
+	clear:both;
+	width:865px;
+	height:auto;
+}
+#main_landing a{
+	text-decoration:underline;
+}
+
+#main_landing a:hover{
+	text-decoration:none;
+	color:#028f02;
+
+}
+
+#print_card{
+	background:url('/assets/thankyou/printGradient.png') 0 0 repeat-x;
+	width:865px;
+	height:81px;
+	margin: 1em 0;
+	padding-top:60px
+}
+
+#print_card a{
+	font-family: Arial, Helvetica, Sans-serif;
+	font-size: 48px;
+	color:#fff;
+}
+
+#print_card a:hover{
+	color:#d0f0fd;
+}
+
+#printer{
+	margin:-50px 40px 0 0;
+
+}
+
+.pharm_card{
+	position:absolute;
+	top:600;
+	margin-left:60px;
+	margin-top:143px;
+	border:0;
+	z-index:4;
+	font-size:16px;
+}
+
+.pharm_card_image{
+	position:absolute;
+	top:500;
+	height:351px;
+	width:581px;
+	border:0;
+	z-index:3;
+}
+
+.pharm_card_info{
+	font-weight:bold;
+}
+.member_id_label {
+    font-weight:bold;
+    color:#4C84ED;
+    font-size:11px;
+    width:300px;
+}
+.member_id{
+    font-weight:bold;
+    color:black;
+    font-size:17px;
+}
+.member_info{
+    font-weight:bold;
+    color:#4C84ED;
+    font-size:13px;
+}
+.member_info_value{
+    font-weight:bold;
+    color:black;
+    font-size:13px;
+}
+.bin,
+.pcn,
+.group{
+	margin-left:70px;
+	line-height:7px;
+}
+
+.bin{
+	padding-top:7px;
+}
+
+.blue_pharm{
+	color:#1f69b0;
+	margin-top:10px;
+}
+
+.dark_blue_pharm{
+	color:#00539b;
+	margin-top:10px;
+}
+
+.thankyou p{
+	color:#000;
+	font-size:15px;
+}
+
+#header_full{
+	z-index:9;
+	position:absolute;
+	top:20;
+	left:19;
+	margin-right:2px;
+	margin-top:-2px;
+}
+.p_header{
+  font-weight: bold;
+  color:#000;
+  font-size: 18px;
+}
+.email_buttons tr td{
+  color: #000;
+  font-size: 11px;
+  font-weight: bold;
+}
+hr{
+  width:831px;
+  text-align: center;
+}
+.sub_heading{
+  margin-left: 15px;;
+  font-size: 11px;
+  color: #000;
+  font-weight: bold;
+}
+.print_button{
+  margin-left:612px;
+  margin-top:300px
+}
