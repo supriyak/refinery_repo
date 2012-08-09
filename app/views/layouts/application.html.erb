@@ -41,7 +41,8 @@
               <!-- main body -->
               <div id="middle">
              <section id="page">
-        <%= yield %>
+        <%#= yield %>
+<%= yield.dup.force_encoding(Encoding::UTF_8) %>
       </section>
 
       </div>
