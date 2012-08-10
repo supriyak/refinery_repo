@@ -1,3 +1,4 @@
+<div>
 <% content_for :body_content_left do %>
   <div class='inquiries'>
     <%= form_for [refinery, :inquiries, @inquiry] do |f| %>
@@ -27,6 +28,11 @@
         <%= link_to t('.privacy_policy'), "/pages/privacy-policy", :id => "privacy_link" if Refinery::Inquiries.show_contact_privacy_link %>
       </div>
     <% end %>
+<h3>To write to us, our address is:</h3>
+<p>Healthcare Alliance<br />
+712 5th Ave, 14th Floor<br />
+New York, NY 10019</p>
+</div>
   </div>
 <% end %>
-<%= render :partial => "/refinery/content_page" %>
+<%= render :partial => "/refinery/content_page",:hide_sections => :body_content_title   %>
