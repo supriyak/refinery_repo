@@ -18,8 +18,7 @@ $(document).ready(function(){
 $('.modules .block-content').hide(); //Hide/close all containers
 $('.modules').find('h3').addClass('modules-trigger');
 //On Click
-$('.modules-trigger').click(function(){
-    alert($(this).next().is(':hidden'))
+$('.modules-trigger').click(function(){   
 	if( $(this).next().is(':hidden') ) { //If immediate next container is closed...
                 
 		$('.modules-trigger').removeClass('active').next().slideUp(); //Remove all .acc_trigger classes and slide up the immediate next container
