@@ -16,8 +16,24 @@
          <![endif]-->
         <link rel="icon" href="/favicon.ico" />
         <%= render :partial => 'layouts/google_analytics'%>
+        <link rel="stylesheet" type="text/css" href="/assets/sliderkit-core.css" media="all" />
+        <script type="text/javascript" src="/assets/jquery_1_4.js"></script>
+        <script type="text/javascript" src="/assets/jquery.sliderkit.1.8.js"></script>
+        <script type="text/javascript">
+          $(window).load(function(){
+            $(".photoslider-1click").sliderkit(
+              {
+                auto:true,
+                autospeed:3000,
+                panelbtnshover:false,
+                circular:true,
+                fastchange:false
+              }
+            );
+          });
+         </script>
     </head>
-    <body>
+    <body style="margin:auto;">
     <script src="//cdn.optimizely.com/js/31931623.js"></script>
     <div class="mboxDefault"></div>
     <script type="text/javascript"> mboxCreate('helprx_global_top_<%=$ttenv%>'); </script>
@@ -30,7 +46,6 @@
     <%= render '/refinery/html_tag' %>
   <% site_bar = render('/refinery/site_bar', :head => true) -%>
   <%= render '/refinery/head' %>
-  <body>
     <%= site_bar -%>
     <%= render '/refinery/ie6check' if request.env['HTTP_USER_AGENT'] =~ /MSIE/ -%>
         <div id="page_container">
@@ -39,7 +54,7 @@
         <%= render '/refinery/header' -%>
       </header>
               <!-- main body -->
-              <div id="middle">
+              <div id="middle" style="margin-left: -60px;">
              <section id="page">
         <%#= yield %>
 <%= yield.dup.force_encoding(Encoding::UTF_8) %>
