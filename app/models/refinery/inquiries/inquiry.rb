@@ -8,7 +8,7 @@ module Refinery
                    :other_fields => [:phone],
                    :extra_spam_words => %w()
 
-      validates :name, :presence => true
+      validates :first_name, :presence => true
       validates :message, :presence => true
       validates :email, :format=> { :with =>  /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }
 
@@ -16,7 +16,7 @@ module Refinery
 
       default_scope :order => 'created_at DESC'
 
-      attr_accessible :name, :phone, :message, :email
+      attr_accessible :name, :phone, :message, :email,:first_name,:last_name,:subject
 
       def self.latest(number = 7, include_spam = false)
         include_spam ? limit(number) : ham.limit(number)
