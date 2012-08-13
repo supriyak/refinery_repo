@@ -52,6 +52,9 @@ namespace :deploy do
 
   task :restart, :roles => :app, :except => { :no_release => true } do
   run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+   if deploy_env=="qa"
+      run "#{try_sudo} chown -R nobody:nobody #{release_path}/tmp"
+    end
 
   end
 
