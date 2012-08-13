@@ -7,11 +7,13 @@ gem 'refinerycms-settings'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development, :test do
-  gem 'sqlite3'
+#  gem 'sqlite3'
 end
 gem 'thinking-sphinx', '2.0.11', :require => 'thinking_sphinx'
 gem 'ts-delayed-delta', '1.1.3', :require => 'thinking_sphinx/deltas/delayed_delta'
 gem 'text'
+gem 'capistrano'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
