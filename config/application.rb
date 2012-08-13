@@ -48,9 +48,10 @@ module Refinery
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
     config.action_dispatch.tld_length = 2
-    config.to_prepare do
-      Refinery.searchable_models = [Refinery::Page,Refinery::PagePart,Refinery::Core::Setting]
-    end
+    # SEARCH COMMENTED FOR NOW BCZ NGINX DOESN'T WORK WITH THIS
+    #config.to_prepare do
+     # Refinery.searchable_models = [Refinery::Page,Refinery::PagePart,Refinery::Core::Setting]
+    #end
 
     # Use SQL instead of Active Record's schema dumper when creating the database.
     # This is necessary if your schema can't be completely dumped by the schema dumper,
