@@ -51,9 +51,6 @@ namespace :deploy do
   task :migrate, :roles => :app do
     run "cd #{release_path} && rake db:migrate"
   end
-  task :migrate, :roles => :app do
-    run "cd #{release_path} && bundle exec rake db:migrate"
-  end
 
   task :restart, :roles => :app, :except => { :no_release => true } do
 
