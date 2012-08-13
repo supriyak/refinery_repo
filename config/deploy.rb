@@ -1,3 +1,5 @@
+require "bundler/capistrano"
+
 set :application, "thehealthcare"
 set :repository,  "git@github.com:supriyak/refinery_repo.git"
 set :deploy_to,  "/ebs/apps/#{application}"
@@ -27,6 +29,7 @@ after "deploy:update_code", "deploy:copy_configs"
 task :qa do
   set :domain, "23.23.227.17"
   set :user, "root"
+  ssh_options[:forward_agent] = true
   set :branch, "master"
   set :scm_verbose, true
   role :web, domain
@@ -47,6 +50,9 @@ namespace :deploy do
 
   task :migrate, :roles => :app do
     run "cd #{release_path} && rake db:migrate"
+  end
+  task :migrate, :roles => :app do
+    run "cd #{release_path} && bundle exec rake db:migrate"
   end
 
   task :restart, :roles => :app, :except => { :no_release => true } do
