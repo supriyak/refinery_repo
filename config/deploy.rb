@@ -1,5 +1,3 @@
-require "bundler/capistrano"
-
 set :application, "thehealthcare"
 set :repository,  "git@github.com:supriyak/refinery_repo.git"
 set :deploy_to,  "/ebs/apps/#{application}"
