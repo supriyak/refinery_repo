@@ -13,9 +13,23 @@ p{
      font-family: OpenSansBold,Arial,Helvetica,sans-serif;
      margin-left: 18px;
 }
+.success_msg{
+    color: #12427A;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 20px;
+    margin: 0 0 15px 18px;
+    padding: 20px 0 0;
+}
 </style>
 <div>
 <% content_for :body_content_left do %>
+  <% if !@success.blank? && @success == "true" %>
+    <div class="success_msg">
+      Thank You<br/><br/>
+We have received your message. Someone will get back to you as soon as possible.
+    </div>
+  <% else %>
   <div class='inquiries'>
     <%= form_for [refinery, :inquiries, @inquiry] do |f| %>
       <%= render :partial => "/refinery/admin/error_messages",
@@ -23,6 +37,7 @@ p{
                    :object => @inquiry,
                    :include_object_name => true
                  } %>
+   
    <div class="contact-form">
                 <div class="sendUsMessage">
                     Send us a message and we'll get right back to you.
@@ -100,6 +115,7 @@ p{
 
             </div>
 			</div>
+  <% end %>
       </div>
     <% end %>
 <h3>To write to us, our address is:</h3>
