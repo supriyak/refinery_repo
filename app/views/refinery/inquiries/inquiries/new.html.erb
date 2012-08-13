@@ -1,3 +1,19 @@
+<style>
+h3 {
+    color: #12427A;
+    font-family: OpenSansBold,Arial,Helvetica,sans-serif;
+    font-size: 17px;
+    line-height: 20px;
+    margin: 0 0 15px 18px;
+    padding: 20px 0 0;
+}
+p{
+     line-height: 20px;
+     color: #12427A;
+     font-family: OpenSansBold,Arial,Helvetica,sans-serif;
+     margin-left: 18px;
+}
+</style>
 <div>
 <% content_for :body_content_left do %>
   <div class='inquiries'>
@@ -69,9 +85,10 @@
             <div class="each-row submitIE paddingTop">
             <div class="submitContainer">
            <div class="actions">
-            <input id="ctl01_leftContent_ctl01_btnSubmit" name="commit" type="submit" value="Send message" class='class="blue-btn-w327-h52 "'>
+            <input id="ctl01_leftContent_ctl01_btnSubmit" name="commit" type="submit" value="Send message" class="blue-btn-w327-h52 ">
+            <span class="requiredText" style="color: #12427A; font-family: OpenSansRegular,Arial,Helvetica,sans-serif;font-size: 14px;font-weight: 400;">*Required </span>
             </div>
-                <span class="requiredText">*Required </span>
+                
                 <br />
             </div>
             </div>
