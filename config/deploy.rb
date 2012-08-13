@@ -27,7 +27,7 @@ default_run_options[:pty] = true  # Forgo errors when deploying from windows
 after "deploy:update_code", "deploy:copy_configs"
 
 task :qa do
-  set :domain, "23.23.227.17"
+  set :domain, "74.208.68.126"
   set :user, "root"
   ssh_options[:forward_agent] = true
   set :branch, "master"
