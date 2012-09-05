@@ -74,5 +74,5 @@ namespace :deploy do
   end
 end
 
-after "deploy:update","deploy:migrate","deploy:precompile","deploy:cleanup"
+after "deploy:update","deploy:precompile","deploy:cleanup"
 
