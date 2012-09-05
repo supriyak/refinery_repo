@@ -25,7 +25,7 @@ default_run_options[:pty] = true  # Forgo errors when deploying from windows
 after "deploy:update_code", "deploy:copy_configs"
 
 task :qa do
-  set :domain, "74.208.68.126"
+  set :domain, "healthcarealliance.sidusa.com"
   set :user, "root"
   ssh_options[:forward_agent] = true
   set :branch, "master"
@@ -49,6 +49,11 @@ namespace :deploy do
   task :migrate, :roles => :app do
     run "cd #{release_path} && rake db:migrate"
   end
+ 
+  task :precompile, :roles => :app do
+    run "cd #{release_path} && rake RAILS_ENV=production RAILS_GROUPS=assets assets:precompile"
+  end
+
 
   task :restart, :roles => :app, :except => { :no_release => true } do
   run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
@@ -69,5 +74,5 @@ namespace :deploy do
   end
 end
 
-after "deploy:update","deploy:cleanup"
+after "deploy:update","deploy:migrate","deploy:precompile","deploy:cleanup"
 
