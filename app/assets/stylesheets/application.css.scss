@@ -48,6 +48,8 @@ body {
     }
     &.selected a, a:hover {
       text-decoration: underline;
+      border: 1px solid #e7f2fb;
+      background-color: #e7f2fb;
     }
   }
 }
