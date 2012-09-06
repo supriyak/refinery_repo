@@ -8,9 +8,13 @@ class ApplicationController < ActionController::Base
   def default_source
     SourcePairing.find_by_source("helporganic")
   end
-  def deafult_api_values
+  def deafult_api_values(type)
     prefix     = "HNA" #If there are timeouts and you have to default to something"
-    usernumber = Userinfo.maximum('id') + 1
+    if type=="small_business"
+     usernumber = Refinery::SmallBusinesses::SmallBusiness.maximum('id') + 1
+    else
+     usernumber = Refinery::PhysicianRecords::PhysicianRecord.maximum('id') + 1
+    end
     {"BIN"=>$BIN, "PCN"=>$PCN, "GroupNumber"=>$GRP, "MemberNumber"=>prefix+usernumber.to_s.rjust(6,"0")}
   end
   def get_device(agent)
@@ -97,7 +101,7 @@ def check_if_bot?
     end
   end
 
- def get_coupon_value(options)
+ def get_coupon_value(options,type=nil)
     result = {}
     if (@bot_request && @bot_request == true)
       return {"BIN"=>$BIN, "PCN"=>$PCN, "GroupNumber"=>$GRP, "MemberNumber"=>$BOT_UID}
@@ -105,7 +109,11 @@ def check_if_bot?
     begin
       Timeout.timeout(7.to_i) do
         if Rails.cache.read(:failures).to_i <= $deafult_api_failure_count
-          user = Userinfo.find_by_id(options[:id])
+          if type=="physicians"
+           user = Refinery::PhysicianRecords::PhysicianRecord.find_by_id(options[:id])
+          elsif type=="small_business"
+           user = Refinery::SmallBusinesses::SmallBusiness.find_by_id(options[:id])
+          end
           #values of call_api(options,User,ContactTypeId,email_contact_type_id,sms_contact_type_id)
           if !user.blank?
             if options[:lifescript] == "lifescript"
@@ -149,7 +157,7 @@ def check_if_bot?
       Rails.logger.error("Http request timeout ")
     end
       msg = @msg.blank? ? "API response is blank and we are using default api values" : "Timeout Error" + ":"+ @msg
-      result = {"Errors"=>[msg],"HasWarnings"=>false,"Warnings"=>[],"Success"=>false,"Contacts"=>[deafult_api_values]} if result.blank?
+      result = {"Errors"=>[msg],"HasWarnings"=>false,"Warnings"=>[],"Success"=>false,"Contacts"=>[deafult_api_values(type)]} if result.blank?
       errors = (!result.blank? && !result["Errors"].blank?) ? result["Errors"] : []
       result = {"Errors"=>errors,"HasWarnings"=>false,"Warnings"=>[],"Success"=>(result["Success"] || false),"Contacts"=>[deafult_api_values]} if !result.blank? && result["Contacts"].blank?
     return result
