@@ -1,0 +1,38 @@
+nb:
+  refinery:
+    plugins:
+      small_businesses:
+        title: Small Businesses
+    small_businesses:
+      admin:
+        small_businesses:
+          actions:
+            create_new: Lag en ny Small Business
+            reorder: Endre rekkefølgen på Small Businesses
+            reorder_done: Ferdig å endre rekkefølgen Small Businesses
+          records:
+            title: Small Businesses
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Small Businesses enda. Klikk på "Lag en ny Small Business" for å legge til din første small business.
+          small_business:
+            view_live_html: Vis hvordan denne small business ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne small business
+            delete: Fjern denne small business permanent
+      small_businesses:
+        show:
+          other: Andre Small Businesses
+  activerecord:
+    attributes:
+      'refinery/small_businesses/small_business':
+        firstname: Firstname
+        lastname: Lastname
+        company: Company
+        title: Title
+        address1: Address1
+        address2: Address2
+        city: City
+        state: State
+        zip: Zip
+        phone: Phone
+        email: Email
+        employees: Employees

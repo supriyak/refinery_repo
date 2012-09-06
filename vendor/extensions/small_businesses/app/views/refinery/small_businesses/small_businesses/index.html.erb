@@ -1,0 +1,11 @@
+<% content_for :body do %>
+  <ul id="small_businesses">
+    <% @small_businesses.each do |small_business| %>
+      <li>
+        <%= link_to small_business.firstname, refinery.small_businesses_small_business_path(small_business) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render '/refinery/content_page' %>

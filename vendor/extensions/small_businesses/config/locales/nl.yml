@@ -1,0 +1,38 @@
+nl:
+  refinery:
+    plugins:
+      small_businesses:
+        title: Small Businesses
+    small_businesses:
+      admin:
+        small_businesses:
+          actions:
+            create_new: Maak een nieuwe Small Business
+            reorder: Wijzig de volgorde van de Small Businesses
+            reorder_done: Klaar met het wijzingen van de volgorde van de Small Businesses
+          records:
+            title: Small Businesses
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Small Businesses. Druk op 'Maak een nieuwe Small Business' om de eerste aan te maken.
+          small_business:
+            view_live_html: Bekijk deze small business op de website <br/><em>(opent een nieuw venster)</em>
+            edit: Bewerk deze small business
+            delete: Verwijder deze small business voor eeuwig
+      small_businesses:
+        show:
+          other: Andere Small Businesses
+  activerecord:
+    attributes:
+      'refinery/small_businesses/small_business':
+        firstname: Firstname
+        lastname: Lastname
+        company: Company
+        title: Title
+        address1: Address1
+        address2: Address2
+        city: City
+        state: State
+        zip: Zip
+        phone: Phone
+        email: Email
+        employees: Employees

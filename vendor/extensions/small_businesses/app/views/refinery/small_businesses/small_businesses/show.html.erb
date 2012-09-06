@@ -1,0 +1,93 @@
+<% content_for :body_content_title do %>
+  <%= @small_business.firstname %>
+<% end %>
+
+<% content_for :body do %>
+  <section>
+    <h1>Firstname</h1>
+    <p>
+      <%=raw @small_business.firstname %>
+    </p>
+  </section>
+  <section>
+    <h1>Lastname</h1>
+    <p>
+      <%=raw @small_business.lastname %>
+    </p>
+  </section>
+  <section>
+    <h1>Company</h1>
+    <p>
+      <%=raw @small_business.company %>
+    </p>
+  </section>
+  <section>
+    <h1>Title</h1>
+    <p>
+      <%=raw @small_business.title %>
+    </p>
+  </section>
+  <section>
+    <h1>Address1</h1>
+    <p>
+      <%=raw @small_business.address1 %>
+    </p>
+  </section>
+  <section>
+    <h1>Address2</h1>
+    <p>
+      <%=raw @small_business.address2 %>
+    </p>
+  </section>
+  <section>
+    <h1>City</h1>
+    <p>
+      <%=raw @small_business.city %>
+    </p>
+  </section>
+  <section>
+    <h1>State</h1>
+    <p>
+      <%=raw @small_business.state %>
+    </p>
+  </section>
+  <section>
+    <h1>Zip</h1>
+    <p>
+      <%=raw @small_business.zip %>
+    </p>
+  </section>
+  <section>
+    <h1>Phone</h1>
+    <p>
+      <%=raw @small_business.phone %>
+    </p>
+  </section>
+  <section>
+    <h1>Email</h1>
+    <p>
+      <%=raw @small_business.email %>
+    </p>
+  </section>
+  <section>
+    <h1>Employees</h1>
+    <p>
+      <%=raw @small_business.employees %>
+    </p>
+  </section>
+<% end %>
+
+<% content_for :side_body do %>
+  <aside>
+    <h2><%= t('.other') %></h2>
+    <ul id="small_businesses">
+      <% @small_businesses.each do |small_business| %>
+        <li>
+          <%= link_to small_business.firstname, refinery.small_businesses_small_business_path(small_business) %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+<% end %>
+
+<%= render '/refinery/content_page' %>

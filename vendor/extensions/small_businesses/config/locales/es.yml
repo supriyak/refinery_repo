@@ -1,0 +1,39 @@
+es:
+  refinery:
+    plugins:
+      small_businesses:
+        title: Small Businesses
+#        article: masculino/femenino
+    small_businesses:
+      admin:
+        small_businesses:
+          actions:
+            create_new: Crear nuevo small business
+            reorder: Reordenar small businesses
+            reorder_done: Reordenación de small businesses completada
+          records:
+            title: Small Businesses
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay small businesses todavía. Pulsa en "Crear nuevo Small Business" para crear tu primer small business.
+          small_business:
+            view_live_html: Ver este small business como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este small business
+            delete: Borrar este small business para siempre
+      small_businesses:
+        show:
+          other: Otros small businesses
+  activerecord:
+    attributes:
+      'refinery/small_businesses/small_business':
+        firstname: Firstname
+        lastname: Lastname
+        company: Company
+        title: Title
+        address1: Address1
+        address2: Address2
+        city: City
+        state: State
+        zip: Zip
+        phone: Phone
+        email: Email
+        employees: Employees

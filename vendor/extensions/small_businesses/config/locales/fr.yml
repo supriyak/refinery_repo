@@ -1,0 +1,38 @@
+fr:
+  refinery:
+    plugins:
+      small_businesses:
+        title: Small Businesses
+    small_businesses:
+      admin:
+        small_businesses:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Small Business
+            reorder: Réordonner les Small Businesses
+            reorder_done: Fin de réordonnancement des Small Businesses
+          records:
+            title: Small Businesses
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) Small Business. Cliquer sur "Créer un(e) nouve(au/l/lle) Small Business" pour créer votre premi(er/ère) small business.'
+          small_business:
+            view_live_html: Voir ce(t/tte) small business <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) small business
+            delete: Supprimer définitivement ce(t/tte) small business
+      small_businesses:
+        show:
+          other: Autres Small Businesses
+  activerecord:
+    attributes:
+      'refinery/small_businesses/small_business':
+        firstname: Firstname
+        lastname: Lastname
+        company: Company
+        title: Title
+        address1: Address1
+        address2: Address2
+        city: City
+        state: State
+        zip: Zip
+        phone: Phone
+        email: Email
+        employees: Employees

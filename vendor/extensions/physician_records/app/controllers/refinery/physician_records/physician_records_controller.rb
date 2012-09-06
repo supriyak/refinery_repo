@@ -19,16 +19,16 @@ module Refinery
         present(@page)
       end
       
-      def create
-      	p "============create"      		
-      			@physician_record = PhysicianRecord.create(params[:physician_record])
-      			if @physician_record.save
-      				options    = {:ip=>request.env['REMOTE_ADDR'],:id=>@physician_record.id,}
-        			response = get_coupon_value(options)
-      				redirect_to "/thankyouphysicianspage"
-      			end
+      #def create
+      #	p "============create"
+      #			@physician_record = PhysicianRecord.create(params[:physician_record])
+      #			if @physician_record.save
+      #				options    = {:ip=>request.env['REMOTE_ADDR'],:id=>@physician_record.id,}
+      #  			response = get_coupon_value(options)
+      #				redirect_to "/thankyouphysicianspage"
+      #			end
       		
-      end
+     # end
 
     protected
 

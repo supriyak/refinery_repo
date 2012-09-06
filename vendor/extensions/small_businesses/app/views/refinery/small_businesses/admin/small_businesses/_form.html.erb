@@ -1,0 +1,83 @@
+<%= form_for [refinery, :small_businesses_admin, @small_business] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @small_business,
+              :include_object_name => true %>
+
+  
+  <div class='field'>
+    <%= f.label :firstname -%>
+    <%= f.text_field :firstname, :class => 'larger widest'  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :lastname -%>
+    <%= f.text_field :lastname  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :company -%>
+    <%= f.text_field :company  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :title -%>
+    <%= f.text_field :title  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :address1 -%>
+    <%= f.text_field :address1  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :address2 -%>
+    <%= f.text_field :address2  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :city -%>
+    <%= f.text_field :city  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :state -%>
+    <%= f.text_field :state  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :zip -%>
+    <%= f.text_field :zip  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :phone -%>
+    <%= f.text_field :phone  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :email -%>
+    <%= f.text_field :email  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :employees -%>
+    <%= f.number_field :employees  -%>
+
+  </div>
+  
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.small_businesses.admin.small_businesses.small_business'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @small_business.firstname) %>
+<% end -%>

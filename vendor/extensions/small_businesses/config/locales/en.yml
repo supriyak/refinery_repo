@@ -1,0 +1,38 @@
+en:
+  refinery:
+    plugins:
+      small_businesses:
+        title: Small Businesses
+    small_businesses:
+      admin:
+        small_businesses:
+          actions:
+            create_new: Add New Small Business
+            reorder: Reorder Small Businesses
+            reorder_done: Done Reordering Small Businesses
+          records:
+            title: Small Businesses
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Small Businesses yet. Click "Add New Small Business" to add your first small business.
+          small_business:
+            view_live_html: View this small business live <br/><em>(opens in a new window)</em>
+            edit: Edit this small business
+            delete: Remove this small business forever
+      small_businesses:
+        show:
+          other: Other Small Businesses
+  activerecord:
+    attributes:
+      'refinery/small_businesses/small_business':
+        firstname: Firstname
+        lastname: Lastname
+        company: Company
+        title: Title
+        address1: Address1
+        address2: Address2
+        city: City
+        state: State
+        zip: Zip
+        phone: Phone
+        email: Email
+        employees: Employees
