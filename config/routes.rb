@@ -5,6 +5,9 @@ Refinery::Application.routes.draw do
   # If you would like to change where this extension is mounted, simply change the :at option to something different.
   #
   # We ask that you don't use the :as option here, as Refinery relies on it being the default of "refinery"
+
+  match '/physicians_new',  :controller => 'physicians', :action => 'create', :method => "POST"
+  match '/small_businesses_new',  :controller => 'small_businesses', :action => 'create', :method => "POST"
   match '/discounts',  :controller => 'discounts', :action => 'fulfill_index'
   match '/fulfillment_print/:id'=> "coupons#fulfillment_print", :as => :coupon_fulfillment_print
   match '/fulfillment_option/:id'=> "coupons#fulfillment_option", :as => :coupon_fulfillment_option
