@@ -1280,7 +1280,7 @@ h2 {
 .to_write_p{
     margin-left: 50px !important;
 }
-.contact_title, .intro{
+.contact_title, .intro, .ThankYouHeaderWidth{
     margin-left: 25px !important;
 }
 .contact_faq_link a:hover{

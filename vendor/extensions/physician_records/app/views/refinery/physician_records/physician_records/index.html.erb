@@ -1,0 +1,11 @@
+<% content_for :body do %>
+  <ul id="physician_records">
+    <% @physician_records.each do |physician_record| %>
+      <li>
+        <%= link_to physician_record.firstname, refinery.physician_records_physician_record_path(physician_record) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render '/refinery/content_page' %>

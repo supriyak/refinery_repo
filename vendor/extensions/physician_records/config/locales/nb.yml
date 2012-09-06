@@ -1,0 +1,40 @@
+nb:
+  refinery:
+    plugins:
+      physician_records:
+        title: Physician Records
+    physician_records:
+      admin:
+        physician_records:
+          actions:
+            create_new: Lag en ny Physician Record
+            reorder: Endre rekkefølgen på Physician Records
+            reorder_done: Ferdig å endre rekkefølgen Physician Records
+          records:
+            title: Physician Records
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Physician Records enda. Klikk på "Lag en ny Physician Record" for å legge til din første physician record.
+          physician_record:
+            view_live_html: Vis hvordan denne physician record ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne physician record
+            delete: Fjern denne physician record permanent
+      physician_records:
+        show:
+          other: Andre Physician Records
+  activerecord:
+    attributes:
+      'refinery/physician_records/physician_record':
+        firstname: Firstname
+        lastname: Lastname
+        practicename: Practicename
+        doctorname: Doctorname
+        office_manager: Office Manager
+        address1: Address1
+        address2: Address2
+        city: City
+        state: State
+        zip: Zip
+        phone: Phone
+        fax: Fax
+        npi_number: Npi Number
+        email: Email

@@ -1,0 +1,40 @@
+sk:
+  refinery:
+    plugins:
+      physician_records:
+        title: Physician Records
+    physician_records:
+      admin:
+        physician_records:
+          actions:
+            create_new: Pridať Physician Record
+            reorder: Preusporiadať Physician Records
+            reorder_done: Koniec radenia Physician Records
+          records:
+            title: Physician Records
+            sorry_no_results: Ľutujeme, ale neboli nájdené žiadne výsledky.
+            no_items_yet: Nie sú vytvorené žiadne Physician Records. Kliknite na "Pridať Physician Record" pre pridanie prvého physician record.
+          physician_record:
+            view_live_html: Zobraziť náhľad physician record<br/><em>(otvorí sa v novom okne)</em>
+            edit: Upraviť physician record
+            delete: Zmazať physician record
+      physician_records:
+        show:
+          other: Daľšie Physician Records
+  activerecord:
+    attributes:
+      'refinery/physician_records/physician_record':
+        firstname: Firstname
+        lastname: Lastname
+        practicename: Practicename
+        doctorname: Doctorname
+        office_manager: Office Manager
+        address1: Address1
+        address2: Address2
+        city: City
+        state: State
+        zip: Zip
+        phone: Phone
+        fax: Fax
+        npi_number: Npi Number
+        email: Email

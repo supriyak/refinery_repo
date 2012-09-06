@@ -1,0 +1,41 @@
+es:
+  refinery:
+    plugins:
+      physician_records:
+        title: Physician Records
+#        article: masculino/femenino
+    physician_records:
+      admin:
+        physician_records:
+          actions:
+            create_new: Crear nuevo physician record
+            reorder: Reordenar physician records
+            reorder_done: Reordenación de physician records completada
+          records:
+            title: Physician Records
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay physician records todavía. Pulsa en "Crear nuevo Physician Record" para crear tu primer physician record.
+          physician_record:
+            view_live_html: Ver este physician record como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este physician record
+            delete: Borrar este physician record para siempre
+      physician_records:
+        show:
+          other: Otros physician records
+  activerecord:
+    attributes:
+      'refinery/physician_records/physician_record':
+        firstname: Firstname
+        lastname: Lastname
+        practicename: Practicename
+        doctorname: Doctorname
+        office_manager: Office Manager
+        address1: Address1
+        address2: Address2
+        city: City
+        state: State
+        zip: Zip
+        phone: Phone
+        fax: Fax
+        npi_number: Npi Number
+        email: Email

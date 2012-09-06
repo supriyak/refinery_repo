@@ -1,0 +1,40 @@
+nl:
+  refinery:
+    plugins:
+      physician_records:
+        title: Physician Records
+    physician_records:
+      admin:
+        physician_records:
+          actions:
+            create_new: Maak een nieuwe Physician Record
+            reorder: Wijzig de volgorde van de Physician Records
+            reorder_done: Klaar met het wijzingen van de volgorde van de Physician Records
+          records:
+            title: Physician Records
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Physician Records. Druk op 'Maak een nieuwe Physician Record' om de eerste aan te maken.
+          physician_record:
+            view_live_html: Bekijk deze physician record op de website <br/><em>(opent een nieuw venster)</em>
+            edit: Bewerk deze physician record
+            delete: Verwijder deze physician record voor eeuwig
+      physician_records:
+        show:
+          other: Andere Physician Records
+  activerecord:
+    attributes:
+      'refinery/physician_records/physician_record':
+        firstname: Firstname
+        lastname: Lastname
+        practicename: Practicename
+        doctorname: Doctorname
+        office_manager: Office Manager
+        address1: Address1
+        address2: Address2
+        city: City
+        state: State
+        zip: Zip
+        phone: Phone
+        fax: Fax
+        npi_number: Npi Number
+        email: Email

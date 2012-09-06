@@ -1,0 +1,40 @@
+en:
+  refinery:
+    plugins:
+      physician_records:
+        title: Physician Records
+    physician_records:
+      admin:
+        physician_records:
+          actions:
+            create_new: Add New Physician Record
+            reorder: Reorder Physician Records
+            reorder_done: Done Reordering Physician Records
+          records:
+            title: Physician Records
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Physician Records yet. Click "Add New Physician Record" to add your first physician record.
+          physician_record:
+            view_live_html: View this physician record live <br/><em>(opens in a new window)</em>
+            edit: Edit this physician record
+            delete: Remove this physician record forever
+      physician_records:
+        show:
+          other: Other Physician Records
+  activerecord:
+    attributes:
+      'refinery/physician_records/physician_record':
+        firstname: Firstname
+        lastname: Lastname
+        practicename: Practicename
+        doctorname: Doctorname
+        office_manager: Office Manager
+        address1: Address1
+        address2: Address2
+        city: City
+        state: State
+        zip: Zip
+        phone: Phone
+        fax: Fax
+        npi_number: Npi Number
+        email: Email

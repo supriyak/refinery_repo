@@ -1,0 +1,109 @@
+<% if refinery_user? %>
+<% content_for :body_content_title do %>
+  <%= @physician_record.firstname %>
+<% end %>
+
+<% content_for :body do %>
+  <section>
+    <h1>Firstname</h1>
+    <p>
+      <%=raw @physician_record.firstname %>
+    </p>
+  </section>
+  <section>
+    <h1>Lastname</h1>
+    <p>
+      <%=raw @physician_record.lastname %>
+    </p>
+  </section>
+  <section>
+    <h1>Practicename</h1>
+    <p>
+      <%=raw @physician_record.practicename %>
+    </p>
+  </section>
+  <section>
+    <h1>Doctorname</h1>
+    <p>
+      <%=raw @physician_record.doctorname %>
+    </p>
+  </section>
+  <section>
+    <h1>Office Manager</h1>
+    <p>
+      <%=raw @physician_record.office_manager %>
+    </p>
+  </section>
+  <section>
+    <h1>Address1</h1>
+    <p>
+      <%=raw @physician_record.address1 %>
+    </p>
+  </section>
+  <section>
+    <h1>Address2</h1>
+    <p>
+      <%=raw @physician_record.address2 %>
+    </p>
+  </section>
+  <section>
+    <h1>City</h1>
+    <p>
+      <%=raw @physician_record.city %>
+    </p>
+  </section>
+  <section>
+    <h1>State</h1>
+    <p>
+      <%=raw @physician_record.state %>
+    </p>
+  </section>
+  <section>
+    <h1>Zip</h1>
+    <p>
+      <%=raw @physician_record.zip %>
+    </p>
+  </section>
+  <section>
+    <h1>Phone</h1>
+    <p>
+      <%=raw @physician_record.phone %>
+    </p>
+  </section>
+  <section>
+    <h1>Fax</h1>
+    <p>
+      <%=raw @physician_record.fax %>
+    </p>
+  </section>
+  <section>
+    <h1>Npi Number</h1>
+    <p>
+      <%=raw @physician_record.npi_number %>
+    </p>
+  </section>
+  <section>
+    <h1>Email</h1>
+    <p>
+      <%=raw @physician_record.email %>
+    </p>
+  </section>
+<% end %>
+
+<% content_for :side_body do %>
+  <aside>
+    <h2><%= t('.other') %></h2>
+    <ul id="physician_records">
+      <% @physician_records.each do |physician_record| %>
+        <li>
+          <%= link_to physician_record.firstname, refinery.physician_records_physician_record_path(physician_record) %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+<% end %>
+
+<%= render '/refinery/content_page' %>
+<%else%> 
+	<p style="margin-left: 50px; font-size: 20px;">You are not allowed to view this page.</p>
+<% end %>
