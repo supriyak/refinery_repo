@@ -1287,3 +1287,11 @@ h2 {
     background-color: #fff !important;
     border: none !important;
 }
+   .mandatory{
+          color: red;
+          font-weight: bold;          
+        }
+        #star_fname{display: none;} #star_lname{display: none;} #star_addr1{display: none;}
+        #star_state{display: none;} #star_city{display: none;} #star_zip{display: none;}
+        #star_email{display: none;} #star_message{display: none;}#star_doctor_name{display: none;}
+        #star_npi{display: none;}

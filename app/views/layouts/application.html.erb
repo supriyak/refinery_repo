@@ -6,6 +6,7 @@
         <%= stylesheet_link_tag    "css/smoothness/jquery-ui-1.8.1.custom.css","css/jquery.autocomplete.css","css/validationEngine.jquery.css", :media => "all" %>
         <%= javascript_include_tag "application" %>
         <%= javascript_include_tag "js/jquery-ui-1.8.1.custom.min.js","js/jquery.validationEngine-en.js", "js/jquery.validationEngine.js","jquery.rating.js", "jquery.easing.1.3.min.js"%>
+       
         <%= javascript_include_tag "main.js" %>
         <%= csrf_meta_tags %>
         <!--[if IE 6]>
@@ -32,7 +33,60 @@
               }
             );
           });
-         </script>
+    </script>
+   <script>
+   $(function(){
+   $("#Phys_Submit").click(function(){
+        if($(".mandatory").css("display", "block")){
+          $(".mandatory").css("display", "none")
+        }
+          var flag1 = "false";var flag2 = "false";var flag3 = "false";
+          var flag4 = "false";var flag5 = "false";var flag6 = "false";
+          var flag7 = "false"; var flag8 = "false"; 
+           if ($("#physician_record_FirstName").val()== ""){
+             $("#star_fname").css("display", "block")
+             flag1 = "true"
+           }
+           else{flag1 = "false"}
+           if ($("#physician_record_LastName").val()== "" ){
+             $("#star_lname").css("display", "block")
+             flag2 = "true"
+           }else{flag2 = "false"}
+           if ($("#physician_record_Address1").val()== "" ){
+             $("#star_addr1").css("display", "block")
+             flag3 = "true"
+           }else{flag3 = "false"}
+           if ($("#physician_record_City").val()== "" ){
+             $("#star_state").css("display", "block")
+             flag4 = "true"
+           }else{flag4 = "false"}
+           if ($("#physician_record_State").val()== " "){
+             $("#star_state").css("display", "block")
+             flag5 = "true"
+           }else{flag5 = "false"}
+           if ($("#physician_record_Zip").val()== "" ){
+             $("#star_state").css("display", "block")
+             flag6 = "true"
+           }else{flag6 = "false"}
+           if ($("#physician_record_DoctorName").val()== "" ){
+             $("#star_doctor_name").css("display", "block")
+             flag7 = "true"
+           }else{flag7 = "true"}
+           if ($("#physician_record_NPINumber").val()== "" ){
+             $("#star_npi").css("display", "block")
+             flag8 = "true"
+           }else{flag8 = "true"}
+
+           if (flag1 == "true" || flag2 == "true" || flag3 == "true" || flag4 == "true" || flag5 == "true" || flag6 == "true"){
+            return false;
+           }
+           else{             
+             $("#new_physician_record").submit();
+           }
+    });
+
+   });
+   </script>
     </head>
     <body style="margin:auto;">
 
