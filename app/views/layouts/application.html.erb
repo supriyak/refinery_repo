@@ -34,6 +34,44 @@
             );
           });
     </script>
+<style>
+.errorMessages{
+          display: none;
+          padding-left: 48px;
+        }
+.txterror {
+color: red;
+font-weight: 700;
+}
+</style>
+   <script>
+  $(function(){
+   $("#ctl01_leftContent_ctl01_btnSubmit").click(function(){
+        if($(".errorMessages").css("display", "block")){
+          $(".errorMessages").css("display", "none")
+          $(".errorMessages").html("")
+        }
+          var flag1 = "false"
+          var flag2 = "false"
+           if ($("#inquiry_email").val()== ""){
+             document.getElementById("inquiryErrMsgs").innerHTML += "<span class='txterror'>Email Address is required</span><br/>" + "\n";
+             flag1 = "true"
+           }
+           if ($("#inquiry_message").val()== "" ){
+             document.getElementById("inquiryErrMsgs").innerHTML += "<span class='txterror'>Message is required</span><br/>" + "\n";
+             flag2 = "true"
+           }
+
+           if (flag1 == "true" || flag2 == "true"){
+             $(".errorMessages").css("display", "block")
+             return false;
+           }
+           else{
+             $("#new_inquiry").submit();
+           }
+    });
+});
+   </script>
    <script>
    $(function(){
    $("#Phys_Submit").click(function(){

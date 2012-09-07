@@ -5,7 +5,7 @@ h3 {
     font-size: 17px;
     line-height: 20px;
     margin: 0 0 15px 18px;
-    padding: 20px 0 0;
+    padding: 324px 0 0;
 }
 p{
      line-height: 20px;
@@ -50,7 +50,7 @@ We have received your message. Someone will <br/> get back to you as soon as pos
                         Your Name &nbsp;
                     </div>
                     <div class="value2">
-                        <input name="inquiry[first_name]" type="text" id="ctl01_leftContent_ctl01_txtFirstName" class="textbox textbox-w147" onfocus="clearText(this)" onblur="clearText(this)" />
+                        <input name="inquiry[first_name]" type="text" id="inquiry_firstname" class="textbox textbox-w147" onfocus="clearText(this)" onblur="clearText(this)" />
                     </div>
                     <div style="clear:both;"></div>
                 </div>
@@ -70,7 +70,7 @@ We have received your message. Someone will <br/> get back to you as soon as pos
                       Email*
                     </div>
                     <div class="value2">
-                        <input name="inquiry[email]" type="text" id="ctl01_leftContent_ctl01_txtEmail" class="textbox textbox-w323" onfocus="clearText(this)" onblur="clearText(this)" />
+                        <input name="inquiry[email]" type="text" id="inquiry_email" class="textbox textbox-w323" onfocus="clearText(this)" onblur="clearText(this)" />
                     </div>
                       <div style="clear:both;"></div>
                 </div>
@@ -81,7 +81,7 @@ We have received your message. Someone will <br/> get back to you as soon as pos
                     Subject
                 </div>
                 <div class="value2">
-                    <input name="inquiry[subject]" type="text" id="ctl01_leftContent_ctl01_txtSubject" class="textbox textbox-w323" onfocus="clearText(this)" onblur="clearText(this)" />
+                    <input name="inquiry[subject]" type="text" id="inquiry_subject" class="textbox textbox-w323" onfocus="clearText(this)" onblur="clearText(this)" />
                 </div>
                   <div style="clear:both;"></div>
             </div>
@@ -91,8 +91,7 @@ We have received your message. Someone will <br/> get back to you as soon as pos
                     Message*
                 </div>
                 <div class="value2">
-                    <textarea name="inquiry[message]" rows="10" cols="20" id="ctl01_leftContent_ctl01_txtMessage" class="textarea textbox-w323" onfocus="clearText(this)" onblur="clearText(this)">
-                   </textarea>
+                    <textarea name="inquiry[message]" rows="10" cols="20" id="inquiry_message" class="textarea textbox-w323" onfocus="clearText(this)" onblur="clearText(this)"></textarea>
                 </div>
               <div style="clear:both;"></div>
             </div>
@@ -100,7 +99,7 @@ We have received your message. Someone will <br/> get back to you as soon as pos
             <div class="each-row submitIE paddingTop">
             <div class="submitContainer">
            <div class="actions">
-            <input id="ctl01_leftContent_ctl01_btnSubmit" name="commit" type="submit" value="Send message" class="blue-btn-w327-h52 ">
+            <input id="ctl01_leftContent_ctl01_btnSubmit" name="commit" type="button" value="Send message" class="blue-btn-w327-h52 ">
             <span class="requiredText" style="color: #12427A; font-family: OpenSansRegular,Arial,Helvetica,sans-serif;font-size: 14px;font-weight: 400;">*Required </span>
             </div>
                 
@@ -111,13 +110,14 @@ We have received your message. Someone will <br/> get back to you as soon as pos
             <!--//each-row-->
             <!--//contact-form-->
             <br />
-            <div class="errorMessages">
+            <div class="errorMessages" id="inquiryErrMsgs">
 
             </div>
 			</div>
   <% end %>
       </div>
     <% end %>
+<br/>
 <h3 class="to_write">To write to us, our address is:</h3>
 <p class="to_write_p">Healthcare Alliance<br />
 712 5th Ave, 14th Floor<br />
