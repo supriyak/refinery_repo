@@ -8,13 +8,14 @@ class ApplicationController < ActionController::Base
   def default_source
     SourcePairing.find_by_source("helporganic")
   end
-  def deafult_api_values(type)
+  def deafult_api_values(type=nil)
     prefix     = "HNA" #If there are timeouts and you have to default to something"
     if type=="small_business"
-     usernumber = Refinery::SmallBusinesses::SmallBusiness.maximum('id') + 1
+     max  = Refinery::SmallBusinesses::SmallBusiness.maximum('id')
     else
-     usernumber = Refinery::PhysicianRecords::PhysicianRecord.maximum('id') + 1
+     max = Refinery::PhysicianRecords::PhysicianRecord.maximum('id') 
     end
+    usernumber  = max.blank? ? 1 : (max +1)
     {"BIN"=>$BIN, "PCN"=>$PCN, "GroupNumber"=>$GRP, "MemberNumber"=>prefix+usernumber.to_s.rjust(6,"0")}
   end
   def get_device(agent)
@@ -159,7 +160,7 @@ def check_if_bot?
       msg = @msg.blank? ? "API response is blank and we are using default api values" : "Timeout Error" + ":"+ @msg
       result = {"Errors"=>[msg],"HasWarnings"=>false,"Warnings"=>[],"Success"=>false,"Contacts"=>[deafult_api_values(type)]} if result.blank?
       errors = (!result.blank? && !result["Errors"].blank?) ? result["Errors"] : []
-      result = {"Errors"=>errors,"HasWarnings"=>false,"Warnings"=>[],"Success"=>(result["Success"] || false),"Contacts"=>[deafult_api_values]} if !result.blank? && result["Contacts"].blank?
+      result = {"Errors"=>errors,"HasWarnings"=>false,"Warnings"=>[],"Success"=>(result["Success"] || false),"Contacts"=>[deafult_api_values(type)]} if !result.blank? && result["Contacts"].blank?
     return result
   end
 
