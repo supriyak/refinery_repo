@@ -35,6 +35,17 @@
           });
     </script>
 <style>
+#footer a{
+    color:#3399FF;
+}
+#footer p{
+  font-size: 9px;
+}
+#footer a:hover{
+  text-decoration: underline;
+  color:#3399FF;
+}
+
 .errorMessages{
           display: none;
         }
@@ -193,12 +204,15 @@ font-weight: 700;
               <div id="middle" style="margin-left: -60px;">
              <section id="page">
         <%#= yield %>
-<%= yield.dup.force_encoding(Encoding::UTF_8) %>
+        <%= yield.dup.force_encoding(Encoding::UTF_8) %>
       </section>
 
       </div>
       <footer>
-        <%= render '/refinery/footer' %>
+        <%#= render '/refinery/footer' %>
+        <%header = Refinery::Page.find_by_slug('healthcare_footer')%>
+              <% part = Refinery::PagePart.find(:first, :conditions=>{:refinery_page_id => header.id, :title => "Body"}) %>
+              <%= raw(part.body.dup.force_encoding(Encoding::UTF_8)) %>
       </footer>
       </div>
       </div>
