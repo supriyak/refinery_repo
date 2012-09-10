@@ -27,7 +27,6 @@ body {
 #menu ul li a {
         display: block;
         padding: 5px 10px;
-        text-decoration: none;
         color: #0066cc;
         font-family: OpenSansRegular,Arial,Helvetica,sans-serif;
         font-size: 17px;
@@ -40,7 +39,6 @@ body {
 }
  #menu ul li.selected a, a:hover {
       text-decoration: underline;
-      background-color: #e7f2fb;
     }
 
 .intro {
