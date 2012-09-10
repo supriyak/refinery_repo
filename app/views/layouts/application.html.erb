@@ -199,9 +199,9 @@ font-weight: 700;
       <div class="rapidxwpr">
             <header id="header">
         <%#= render '/refinery/header' -%>
-        <%header = Refinery::Page.find_by_slug('healthcare_header')%>
-        <% part = Refinery::PagePart.find(:first, :conditions=>{:refinery_page_id => header.id, :title => "Body"}) %>
-        <%= raw(part.body.dup.force_encoding(Encoding::UTF_8)) %>
+        <%#header = Refinery::Page.find_by_slug('healthcare_header')%>
+        <% #part = Refinery::PagePart.find(:first, :conditions=>{:refinery_page_id => header.id, :title => "Body"}) %>
+        <%#= raw(part.body.dup.force_encoding(Encoding::UTF_8)) %>
         
       </header>
               <!-- main body -->
@@ -214,9 +214,9 @@ font-weight: 700;
       </div>
       <footer>
         <%#= render '/refinery/footer' %>
-        <%footer = Refinery::Page.find_by_slug('healthcare_footer')%>
-        <% part = Refinery::PagePart.find(:first, :conditions=>{:refinery_page_id => footer.id, :title => "Body"}) %>
-        <%= raw(part.body.dup.force_encoding(Encoding::UTF_8)) %>
+        <%#footer = Refinery::Page.find_by_slug('healthcare_footer')%>
+        <% #part = Refinery::PagePart.find(:first, :conditions=>{:refinery_page_id => footer.id, :title => "Body"}) %>
+        <%#= raw(part.body.dup.force_encoding(Encoding::UTF_8)) %>
       </footer>
       </div>
       </div>
