@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   def default_source
     SourcePairing.find_by_source("helporganic")
   end
-  def deafult_api_values(type)
+  def deafult_api_values(type=nil)
     prefix     = "HNA" #If there are timeouts and you have to default to something"
     if type=="small_business"
      usernumber = Refinery::SmallBusinesses::SmallBusiness.maximum('id') + 1
