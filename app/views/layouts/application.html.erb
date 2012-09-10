@@ -84,6 +84,41 @@ font-weight: 700;
    </script>
    <script>
    $(function(){
+     <% if request.url.include?("/about-us") %>
+        $('body').addClass("AboutUs")
+      <% elsif request.url.include?("/rxrelief") %>
+       $('body').addClass("RxReliefMenu")
+     <% elsif request.url.include?("/physicians") %>
+       $('body').addClass("Physicians")
+      <% elsif request.url.include?("/small-business") %>
+        $('body').addClass("SmallBusiness")         
+     <% elsif request.url.include?("/faq") %>
+       $('body').addClass("FAQ")
+      <% elsif request.url.include?("/contact-us") %>
+       $('body').addClass("ContactUs")
+    <% end %>
+    if ($(".AboutUs .aboutUs").length > 0) {
+        $(".AboutUs .aboutUs").css('background-color', '#E7F2FB');
+    }
+    if ($(".FAQ .faq").length > 0) {
+        $(".FAQ .faq").css('background-color', '#E7F2FB');
+    }
+    if ($(".ContactUs .contactUs").length > 0) {
+        $(".ContactUs .contactUs").css('background-color', '#E7F2FB');
+    }
+
+    if ($(".RxReliefMenu .rxRelief").length > 0) {
+        $(".RxReliefMenu .rxRelief").css('background-color', '#E7F2FB');
+    }
+
+    if ($(".Physicians .physicians").length > 0) {
+        $(".Physicians .physicians").css('background-color', '#E7F2FB');
+    }
+
+    if ($(".SmallBusiness .smallBusiness").length > 0) {
+        $(".SmallBusiness .smallBusiness").css('background-color', '#E7F2FB');
+    }
+
    $("#Phys_Submit").click(function(){
         if($(".mandatory").css("display", "block")){
           $(".mandatory").css("display", "none")
@@ -197,13 +232,12 @@ font-weight: 700;
     <br/>
         <div id="page_container">
       <div class="rapidxwpr">
-            <header id="header">
+            
         <%#= render '/refinery/header' -%>
         <%header = Refinery::Page.find_by_slug('healthcare_header')%>
         <%part = Refinery::PagePart.find(:first, :conditions=>{:refinery_page_id => header.id, :title => "Body"}) %>
         <%= raw(part.body.dup.force_encoding(Encoding::UTF_8)) %>
         
-      </header>
               <!-- main body -->
               <div id="middle" style="margin-left: -60px;">
              <section id="page">
