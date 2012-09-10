@@ -7,7 +7,7 @@ module Refinery
 
       acts_as_indexed :fields => [:firstname, :lastname, :company, :title, :address1, :address2, :city, :state, :zip, :phone, :email]
 
-      validates :firstname, :presence => true, :uniqueness => true
+      validates :firstname, :presence => true #, :uniqueness => true
     end
   end
 end
