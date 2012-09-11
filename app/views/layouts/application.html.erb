@@ -126,6 +126,7 @@ font-weight: 700;
     }
 
    $("#Phys_Submit").click(function(){
+        document.getElementById("phys_error_message").innerHTML = "";
         if($(".mandatory").css("display", "block")){
           $(".mandatory").css("display", "none")
         }
@@ -188,6 +189,7 @@ font-weight: 700;
    <script>
    $(function(){
    $("#small_submit").click(function(){
+        document.getElementById("smallbus_error_message").innerHTML = "";
         if($(".mandatory").css("display", "block")){
           $(".mandatory").css("display", "none")
         }
@@ -197,37 +199,50 @@ font-weight: 700;
            if ($("#small_businesses_FirstName").val()== ""){
              $("#star_fname").css("display", "block")
              flag1 = "true"
+             document.getElementById("smallbus_error_message").innerHTML += "<ul><li>First Name is Required</li></ul>" + "\n";
            }
            else{flag1 = "false"}
            if ($("#small_businesses_LastName").val()== "" ){
              $("#star_lname").css("display", "block")
              flag2 = "true"
+             document.getElementById("smallbus_error_message").innerHTML += "<ul><li>Last Name is Required</li></ul>" + "\n";
            }else{flag2 = "false"}
            if ($("#small_businesses_Address1").val()== "" ){
              $("#star_addr1").css("display", "block")
              flag3 = "true"
+             document.getElementById("smallbus_error_message").innerHTML += "<ul><li>Address1 is Required</li></ul>" + "\n";
            }else{flag3 = "false"}
            if ($("#small_businesses_City").val()== "" ){
              $("#star_state").css("display", "block")
              flag4 = "true"
+             document.getElementById("smallbus_error_message").innerHTML += "<ul><li>City is Required</li></ul>" + "\n";
            }else{flag4 = "false"}
            if ($("#small_businesses_State").val()== " "){
              $("#star_state").css("display", "block")
              flag5 = "true"
+             document.getElementById("smallbus_error_message").innerHTML += "<ul><li>State is Required</li></ul>" + "\n";
            }else{flag5 = "false"}
            if ($("#small_businesses_Zip").val()== "" ){
              $("#star_state").css("display", "block")
              flag6 = "true"
+             document.getElementById("smallbus_error_message").innerHTML += "<ul><li>ZIP is Required</li></ul>" + "\n";
            }else{flag6 = "false"}
            if ($("#small_businesses_Company").val()== "" ){
              $("#star_company").css("display", "block")
              flag7 = "true"
+             document.getElementById("smallbus_error_message").innerHTML += "<ul><li>Company name is Required</li></ul>" + "\n";
            }else{flag7 = "false"}
-           
-           if (flag1 == "true" || flag2 == "true" || flag3 == "true" || flag4 == "true" || flag5 == "true" || flag6 == "true" || flag7 == "true"){
+           if ($("#small_businesses_employees").val()== "" ){
+             $("#star_emp").css("display", "block")
+             flag8 = "true"
+             document.getElementById("smallbus_error_message").innerHTML += "<ul><li>Emplyees is Required</li></ul>" + "\n";
+           }else{flag8 = "false"}
+           if (flag1 == "true" || flag2 == "true" || flag3 == "true" || flag4 == "true" || flag5 == "true" || flag6 == "true" || flag7 == "true" || flag8 == "true"){
+             $("#smallbus_error_message").css("display", "block")
             return false;
            }
-           else{             
+           else{
+             document.getElementById("smallbus_error_message").innerHTML = "";
              $("#new_small_business").submit();
            }
     });

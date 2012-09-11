@@ -1330,13 +1330,20 @@ h2 {
 #star_fname{display: none;} #star_lname{display: none;} #star_addr1{display: none;}
 #star_state{display: none;} #star_city{display: none;} #star_zip{display: none;}
 #star_email{display: none;} #star_message{display: none;}#star_doctor_name{display: none;}
-#star_npi{display: none;} #star_company{display:none;}
+#star_npi{display: none;} #star_company{display:none;} #star_emp{display:none;}
 
 .small_city_table{
     margin-left: -7px; 
 	margin-bottom: 6px;
 }
 #phys_error_message{
+    color: #CC3333;
+    display: block;
+    font-weight: bold;
+    height: auto;
+    margin-left: 45px;
+}
+#smallbus_error_message{
     color: #CC3333;
     display: block;
     font-weight: bold;
