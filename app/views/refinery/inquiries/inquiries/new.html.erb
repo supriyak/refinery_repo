@@ -5,7 +5,6 @@ h3 {
     font-size: 17px;
     line-height: 20px;
     margin: 0 0 15px 18px;
-    padding: 373px 0 0;
 }
 p{
      line-height: 20px;
@@ -99,8 +98,7 @@ We have received your message. Someone will <br/> get back to you as soon as pos
             <div class="each-row submitIE paddingTop">
             <div class="submitContainer">
            <div class="actions">
-            <input id="ctl01_leftContent_ctl01_btnSubmit" name="commit" type="button" value="Send message" class="blue-btn-w327-h52 ">
-            <span class="requiredText" style="color: #12427A; font-family: OpenSansRegular,Arial,Helvetica,sans-serif;font-size: 14px;font-weight: 400;">*Required </span>
+            <input id="ctl01_leftContent_ctl01_btnSubmit" name="commit" type="button" value="Send message" class="blue-btn-w327-h52 "/>
             </div>
                 
                 <br />
@@ -117,7 +115,11 @@ We have received your message. Someone will <br/> get back to you as soon as pos
       </div>
     <% end %>
 <br/>
-<h3 class="to_write">To write to us, our address is:</h3>
+<% if !@success.blank? && @success == "true" %>
+  <h3 class="to_write" style="padding: 0px 0 0;">To write to us, our address is:</h3>
+<% else %>
+  <h3 class="to_write" style="padding: 373px 0 0;">To write to us, our address is:</h3>
+<% end %>
 <p class="to_write_p">Healthcare Alliance<br />
 712 5th Ave, 14th Floor<br />
 New York, NY 10019</p>
