@@ -77,6 +77,16 @@ font-weight: 700;
              document.getElementById("inquiryErrMsgs").innerHTML += "<span class='txterror'>Message is required</span><br/>" + "\n";
              flag2 = "true"
            }
+           if ($("#inquiry_email").val()!= "" ){
+              var x=$("#inquiry_email").val()
+              var atpos=x.indexOf("@");
+              var dotpos=x.lastIndexOf(".");
+              if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+                {
+                   flag1 = "true"
+                   document.getElementById("inquiryErrMsgs").innerHTML += "<span class='txterror'>Invalid Email</span>" + "\n";
+                }  
+           }
 
            if (flag1 == "true" || flag2 == "true"){
              $(".errorMessages").css("display", "block")
