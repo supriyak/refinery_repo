@@ -174,6 +174,16 @@ font-weight: 700;
              flag8 = "true"
              document.getElementById("phys_error_message").innerHTML += "<ul><li>NPI number is Required</li></ul>" + "\n";
            }else{flag8 = "false"}
+           if ($("#physician_record_Email").val()!= "" ){
+              var x=$("#physician_record_Email").val()
+              var atpos=x.indexOf("@");
+              var dotpos=x.lastIndexOf(".");
+              if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+                {
+                   flag8 = "true"
+                   document.getElementById("phys_error_message").innerHTML += "<ul><li>Invalid Email</li></ul>" + "\n";
+                }  
+           }else{flag8 = "false"}
 
            if (flag1 == "true" || flag2 == "true" || flag3 == "true" || flag4 == "true" || flag5 == "true" || flag6 == "true"|| flag7 == "true" || flag8 == "true"){
             $("#phys_error_message").css("display", "block")
@@ -227,6 +237,16 @@ font-weight: 700;
              flag6 = "true"
              document.getElementById("smallbus_error_message").innerHTML += "<ul><li>ZIP is Required</li></ul>" + "\n";
            }else{flag6 = "false"}
+            if ($("#small_businesses_Email").val()!= "" ){
+              var x=$("#small_businesses_Email").val()
+              var atpos=x.indexOf("@");
+              var dotpos=x.lastIndexOf(".");
+              if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+                {
+                   flag8 = "true"
+                   document.getElementById("smallbus_error_message").innerHTML += "<ul><li>Invalid Email</li></ul>" + "\n";
+                }
+           }else{flag8 = "false"}
            if ($("#small_businesses_Company").val()== "" ){
              $("#star_company").css("display", "block")
              flag7 = "true"
